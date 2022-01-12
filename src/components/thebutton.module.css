@@ -1,0 +1,25 @@
+body{
+  background: #f2f2f2;
+}
+#button-container{
+  height: 75px;
+  width: 120px;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#the-button{
+  width: 100%;
+  padding: auto;
+  height: 100%;
+  margin: auto;
+  text-align: center;
+  border: solid #000 2.5px;
+  border-radius: 2px;
+  background: #fadadd;
+}
+#the-button, body{
+  transition: background 350ms ease-in-out;
+}

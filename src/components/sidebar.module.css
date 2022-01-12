@@ -1,0 +1,6 @@
+.sidebar{
+  padding: 20px 36px;
+}
+@media all and (min-width: 600px) {
+  .sidebar { flex: 2 0px;}
+}

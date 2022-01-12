@@ -1,0 +1,11 @@
+.wrapper{
+  display: flex;
+  flex-flow: wrap;
+  min-height: calc(100vh - 60px - 2em);
+  padding-bottom: 2em;
+  background-color: var(--bgPrimary);
+  color: var(--textPrimary);
+}
+.wrapper-item{
+  flex: 1 100%;
+}

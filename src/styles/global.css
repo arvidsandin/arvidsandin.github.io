@@ -1,0 +1,92 @@
+* {
+    box-sizing: border-box;
+    font: inherit;
+    font-weight: revert;
+    font-style: revert;
+    transition: background 350ms ease-in-out;
+}
+@supports (-moz-appearance:none) {
+    /* This causes a significant delay in webkit browsers between the background and text transitions*/
+    * {transition: background 350ms ease-in-out, color 350ms ease-in-out}
+}
+body.light-mode {
+  --bgPrimary: #f2f2f2;
+  --bgSecondary: #fff;
+  --bgTertiary: #d7d7d7;
+  --transparantWeak: rgba(0,0,0,0.04);
+  --transparantMedium: rgba(0,0,0,0.1);
+  --transparantStrong: rgba(0,0,0,0.3);
+  --headings: #333;
+  --textPrimary: #000;
+  --textSecondary: #444;
+  --textLink: #0077aa;
+}body.dark-mode {
+  -webkit-font-smoothing: antialiased;
+  --bgPrimary: #222;
+  --bgSecondary: #000;
+  --bgTertiary: #282828;
+  --transparantWeak: rgba(255,255,255,0.08);
+  --transparantMedium: rgba(255,255,255,0.1);
+  --transparantStrong: rgba(255,255,255,0.3);
+  --outlinePrimary: #fff;
+  --headings: #ddd;
+  --textPrimary: #fff;
+  --textSecondary: #d7d7d7;
+  --textLink: #6ab4d3;
+}
+body{
+    font-family: sans-serif;
+    color: var(--primaryText);
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--bgPrimary);
+    position: relative;
+}
+a{
+    text-decoration: none;
+    color: var(--textLink);
+}
+a:hover{text-decoration: underline;}
+a:visited{ color:var(--textLink); }
+button{
+    all: unset;
+    box-sizing: border-box;
+}
+/* button:focus { outline: solid 1px #000; } */
+/* button::-moz-focus-inner { border: 0; } */
+button:active{transform: scale(0.97);}
+button:focus-visible{ outline: revert}
+button:active{box-shadow: inset 0 0 10px 100px var(--transparantWeak);}
+button:hover{ cursor: pointer;}
+h2{
+    margin: 25px auto;
+    display: table;
+    color: var(--headings);
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+}
+h2 a{
+    color: inherit;
+    text-decoration: none;
+}
+h2 a:visited{
+    color: inherit;
+}
+h2 a:hover{
+     text-decoration: none;
+}
+p{
+    color: var(--primaryText);
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.darkenOnHover:hover{ box-shadow: inset 0 0 10px 100px var(--transparantMedium); }

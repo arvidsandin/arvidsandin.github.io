@@ -1,0 +1,16 @@
+.footer{
+  position: absolute;
+  bottom: 0;
+  left:0;
+  margin: 0;
+  width: 100%;
+  background: #d7d7d7;
+  height: 2em;
+  line-height: 2em;
+  background-color: var(--bgTertiary);
+  color: var(--textSecondary)
+}
+
+.footer-text{
+  margin: 0 15px;
+}

@@ -1,0 +1,7 @@
+.main-content{
+  padding: 0 10%;
+}
+
+@media all and (min-width: 600px) {
+  .main-content {  flex: 5 0px; }
+}
