@@ -7,7 +7,7 @@ const IndexPage = () => {
       <div>
         <title>Arvid Sandin - Color Codes</title>
         <NavigationBar></NavigationBar>
-        <Wrapper header={<a href="https://arvidsandin.github.io/color-codes/">Color Codes</a>} content={<p><b>Color Codes</b> is a color hex code browsing website. The website can be found <a href="https://arvidsandin.github.io/color-codes/">here</a> and the source code is available on <a href="https://github.com/arvidsandin/color-codes">Github</a></p>}>
+        <Wrapper header={<a href="https://color-codes.onrender.com/">Color Codes</a>} content={<p><b>Color Codes</b> is a color hex code browsing website. The website can be found <a href="https://color-codes.onrender.com/">here</a> and the source code is available on <a href="https://github.com/arvidsandin/color-codes">Github</a></p>}>
         </Wrapper>
         <Footer></Footer>
       </div>
