@@ -10,6 +10,7 @@ const NavigationBar = () => {
     <div className={navigationBar}>
       <NavBarItem link='/' id='homelink' text='Home'></NavBarItem>
       <NavBarItem link='/colorCodes' id='colorcodesLink' text='Color Codes'></NavBarItem>
+      <NavBarItem link='/custom-top-sort' id='custom-top-sortLink' text='Custom top sort'></NavBarItem>
       <NavBarItem link='/draw-contest' id='drawcontestLink' text='Draw contest'></NavBarItem>
       <NavBarItem link='/button' id='buttonLink' text='Button'></NavBarItem>
       <button type="button" className={`${button} unselectable`} onClick={darkMode.toggle}>
