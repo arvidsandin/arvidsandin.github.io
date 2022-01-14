@@ -2,8 +2,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This is the code fo my personal website and portfolio which can be found at [COMING SOON]()
-
+This is the code fo my personal website and portfolio which can be found at [arvid.sandin.dev](https://arvid.sandin.dev)
 
 
 ### Built With
@@ -13,12 +12,10 @@ This is the code fo my personal website and portfolio which can be found at [COM
 * [gatsby-plugin-use-dark-mode](https://github.com/wKovacs64/gatsby-plugin-use-dark-mode)
 
 
-
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+To get a local copy up and running follow these steps.
 
 ### Prerequisites
 
@@ -29,14 +26,18 @@ To get a local copy up and running follow these simple example steps.
 
 ### Installation
 
-2. Clone the repo
+1. Clone the repo
    ```sh
-   git clone https://github.com/arvidsandin/arvid.sandin.dev.git
+   git clone https://github.com/arvidsandin/arvidsandin.github.io.git
    ```
-3. Install NPM packages
+2. Install NPM packages
    ```sh
-   cd arvid.sandin.dev
+   cd arvidsandin.github.io
    npm install
+   ```
+3. Start local development server
+   ```sh
+   npm run develop
    ```
 
 
