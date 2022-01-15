@@ -8,7 +8,7 @@
   height: 2em;
   line-height: 2em;
   background-color: var(--bgTertiary);
-  color: var(--textSecondary)
+  color: var(--textSecondary);
 }
 
 .footer-text{

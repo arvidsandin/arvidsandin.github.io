@@ -1,0 +1,10 @@
+.logo{
+    display: inline-block;
+    padding: 1em 0.5em 0 0;
+    filter: var(--filter);
+}
+
+/* TODO: make something that works with .darkenOnHover instead*/
+.logo:hover{
+    filter: invert(0.5);
+}

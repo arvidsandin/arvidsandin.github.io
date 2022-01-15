@@ -20,6 +20,8 @@ body.light-mode {
   --textPrimary: #000;
   --textSecondary: #444;
   --textLink: #0077aa;
+  /* if nothing else is suitable */
+  --filter: invert(0);
 }body.dark-mode {
   -webkit-font-smoothing: antialiased;
   --bgPrimary: #222;
@@ -33,6 +35,7 @@ body.light-mode {
   --textPrimary: #fff;
   --textSecondary: #d7d7d7;
   --textLink: #6ab4d3;
+  --filter: invert(1);
 }
 body{
     font-family: sans-serif;
