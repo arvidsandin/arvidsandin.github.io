@@ -8,7 +8,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-goatcounter`,
       options: {
-        code: 'https://arvid-sandin-dev.goatcounter.com/count',
+        code: 'arvid-sandin-dev',
       },
     },
   ],
