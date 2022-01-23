@@ -11,5 +11,15 @@ module.exports = {
         code: 'arvid-sandin-dev',
       },
     },
-  ],
+    'gatsby-plugin-image',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images/`,
+      },
+    },
+  ]
 };
