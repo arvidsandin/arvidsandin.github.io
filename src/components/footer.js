@@ -4,7 +4,7 @@ import { footer, footerText } from './footer.module.css'
 const Footer = () => {
     return (
         <div className={footer}>
-            <p className={footerText}> Made by: <a href="https://github.com/arvidsandin">arvidsandin</a></p>
+            <p className={footerText}> Made by: <a href="https://github.com/arvidsandin" target='_blank' rel='noopener noreferrer'>arvidsandin</a></p>
         </div>
     );
 };

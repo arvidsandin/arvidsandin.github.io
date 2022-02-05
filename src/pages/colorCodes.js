@@ -8,11 +8,11 @@ const IndexPage = () => {
       <div>
         <title>Arvid Sandin - Color Codes</title>
         <NavigationBar></NavigationBar>
-        <Wrapper header={<a href="https://color-codes.onrender.com/">Color Codes</a>} content={[
+        <Wrapper header={<a href="https://color-codes.onrender.com/" target='_blank' rel='noopener noreferrer'>Color Codes</a>} content={[
         <b>Color Codes</b>,
         " is a color hex code browsing website. The website can be found ",
-        <a href="https://color-codes.onrender.com/">here</a>," and the source code is available on ",
-        <a href="https://github.com/arvidsandin/color-codes">Github</a>,
+          <a href="https://color-codes.onrender.com/" target='_blank' rel='noopener noreferrer'>here</a>," and the source code is available on ",
+          <a href="https://github.com/arvidsandin/color-codes" target='_blank' rel='noopener noreferrer'>Github</a>,
         <br />, <br />,
         <StaticImage
           src='../images/color-codes.png'

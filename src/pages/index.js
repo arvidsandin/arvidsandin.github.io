@@ -17,7 +17,7 @@ const IndexPage = () => {
           <br />, <br />,
           'On this website, you will find some personal programming projects and experiments. The pages above are sorted by seriousness from left to right. If you want to get in touch, please use send a message in any of the services linked below.',
           <br />, <br />,
-          "If you're wondering about this website in particular, it's build with gatsby and hosted with GitHub Pages. More details and the source code for can be found ", <a href='https://github.com/arvidsandin/arvidsandin.github.io'>in the repository</a>,'.',
+          "If you're wondering about this website in particular, it's build with Gatsby.js and React.js and hosted with GitHub Pages. More details and the source code for can be found ", <a href='https://github.com/arvidsandin/arvidsandin.github.io'>in the repository</a>,'.',
           <br />,
           <Logo logo={LinkedIn} link='https://www.linkedin.com/in/arvid-sandin/' alt='LinkedIn logo'></Logo>,
           <Logo logo={Github} link='https://github.com/arvidsandin' alt='Github logo'></Logo>,
