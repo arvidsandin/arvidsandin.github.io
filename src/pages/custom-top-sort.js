@@ -7,9 +7,9 @@ const IndexPage = () => {
       <div>
         <title>Arvid Sandin - Custom top sort</title>
         <NavigationBar></NavigationBar>
-        <Wrapper header={<a href="https://github.com/arvidsandin/custom-top-sort-for-reddit" target='_blank' rel='noopener noreferrer'>Color Codes</a>} content={[
+        <Wrapper header={<a href="https://github.com/arvidsandin/custom-top-sort-for-reddit" target='_blank' rel='noopener noreferrer'>Custom top sort</a>} content={[
         <b>Custom top sort for Reddit</b>,
-        " is a browser extension get the top posts on reddit with other options than the defaul last hour, day, week, month and year. With the extension, it can be filtered and sorted from the last three days, 21 hours, 7 months or whatever you want!.",
+        " is a browser extension to get the top posts on Reddit with other options than the default last hour, day, week, month and year. With the extension, it can be filtered and sorted from the last three days, 21 hours, 7 months or whatever you want!.",
         <br />, <br />, "The extension is available for ",
           <a href="https://addons.mozilla.org/addon/custom-top-sort-for-reddit/" target='_blank' rel='noopener noreferrer'>Firefox</a>,
         ", ",
