@@ -1,18 +1,12 @@
-
-<!-- ABOUT THE PROJECT -->
 ## About The Project
 
 This is the code fo my personal website and portfolio which can be found at [arvid.sandin.dev](https://arvid.sandin.dev)
-
 
 ### Built With
 
 * [React.js](https://reactjs.org/)
 * [Gatsby.js](https://www.gatsbyjs.com/)
-* [gatsby-plugin-use-dark-mode](https://github.com/wKovacs64/gatsby-plugin-use-dark-mode)
 
-
-<!-- GETTING STARTED -->
 ## Getting Started
 
 To get a local copy up and running follow these steps.
@@ -40,9 +34,11 @@ To get a local copy up and running follow these steps.
    npm run develop
    ```
 
-
-<!-- LICENSE -->
 ## License
 
 Distributed under the GNU General Public License v3.0 License. See [LICENSE](LICENSE.txt) for more information.
 
+## Acknowledgements
+
+* Icons from [iconmonstr](https://iconmonstr.com)
+* Light/dark mode made with [gatsby-plugin-use-dark-mode](https://github.com/wKovacs64/gatsby-plugin-use-dark-mode)
