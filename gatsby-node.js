@@ -7,42 +7,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const blogPost = path.resolve(`./src/templates/blog-post.jsx`)
   const portfolioEntry = path.resolve(`./src/templates/portfolio-entry.jsx`)
 
+  await createPages("/blog", blogPost, "/\/blog\//", graphql, createPage)
+  await createPages("", portfolioEntry, "/\/portfolio\//", graphql, createPage)
+}
 
-  // Get all the Markdown nodes that posts that are on the blog folder
-  const result2 = await graphql(`
-    {
-      blogPosts: allMarkdownRemark(
-        filter: {fileAbsolutePath: {regex: "/\/blog\//"}}
-      ){
-        nodes {
-          id
-          frontmatter {
-            slug
-          }
-        }
-      }
-    }
-  `)
-
-  const posts2 = result2.data.blogPosts.nodes
-  if (posts2.length > 0) {
-    posts2.forEach((post, index) => {
-
-      createPage({
-        path: "/blog" + post.frontmatter.slug,
-        component: blogPost,
-        context: {
-          id: post.id,
-        },
-      })
-    })
-  }
-
-  // Repeat for portfolio entries
+async function createPages(path, component, pathRegex, graphql, createPage){
+  // Get all the Markdown nodes that are in the selected folder
   const result = await graphql(`
     {
       portfolioEntries: allMarkdownRemark(
-        filter: {fileAbsolutePath: {regex: "/\/portfolio\//"}}
+        filter: {fileAbsolutePath: {regex: "${pathRegex}"}}
       ){
         nodes {
           id
@@ -54,13 +28,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     }
   `)
 
+  // Generate pages
   const posts = result.data.portfolioEntries.nodes
   if (posts.length > 0) {
     posts.forEach((post, index) => {
 
       createPage({
-        path: post.frontmatter.slug,
-        component: portfolioEntry,
+        path: path + post.frontmatter.slug,
+        component: component,
         context: {
           id: post.id,
         },
