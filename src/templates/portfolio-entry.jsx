@@ -11,7 +11,7 @@ const PortfolioEntryTemplate= ({ data /* this prop will be injected by the Graph
         <div>
             <title>Arvid Sandin - {frontmatter.title}</title>
             <NavigationBar></NavigationBar>
-            <Wrapper header={<a href={frontmatter.headerLink} target='_blank' rel='noopener noreferrer'>{frontmatter.title}</a>} content={html}>
+            <Wrapper header={frontmatter.headerLink ? <a href={frontmatter.headerLink} target='_blank' rel='noopener noreferrer'>{frontmatter.title}</a> : frontmatter.title} content={html}>
             </Wrapper>
             <Footer></Footer>
         </div>
@@ -30,6 +30,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         slug
+        headerLink
       }
     }
   }

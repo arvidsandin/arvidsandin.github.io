@@ -11,7 +11,7 @@ const BlogPostTemplate= ({ data /* this prop will be injected by the GraphQL que
         <div>
             <title>Arvid Sandin - {frontmatter.title}</title>
             <NavigationBar></NavigationBar>
-            <Wrapper header={frontmatter.title} content={html}>
+            <Wrapper header={<div>{frontmatter.title}</div>} content={html}>
             </Wrapper>
             <Footer></Footer>
         </div>
