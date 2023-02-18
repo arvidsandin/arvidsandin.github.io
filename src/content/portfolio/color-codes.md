@@ -1,5 +1,5 @@
 ---
-slug: "/color-codes"
+slug: "/colorCodes"
 title: "Color Codes"
 headerLink: "https://color-codes.onrender.com/"
 ---
