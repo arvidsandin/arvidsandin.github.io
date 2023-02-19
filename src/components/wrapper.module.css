@@ -1,7 +1,9 @@
 .wrapper{
   display: flex;
   flex-flow: wrap;
-  min-height: calc(100vh - 60px - 2em);
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
   padding-bottom: 2em;
   background-color: var(--bgPrimary);
   color: var(--textPrimary);

@@ -2,3 +2,4 @@ node_modules/
 .cache/
 public
 src/content/blog/test-post.md
+src/content/blog/test-post2.md

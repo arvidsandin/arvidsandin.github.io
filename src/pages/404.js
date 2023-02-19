@@ -9,8 +9,8 @@ const NotFoundPage = () => {
       <title>Page not found</title>
       <NavigationBar></NavigationBar>
       <Wrapper header='404 - page not found'>
+        <Footer></Footer>
       </Wrapper>
-      <Footer></Footer>
     </div>
   );
 };

@@ -1,6 +1,5 @@
 import * as React from "react"
 import { graphql } from "gatsby"
-import NavigationBar from '../components/navigationbar'
 import Wrapper from '../components/wrapper'
 import Footer from '../components/footer'
 
@@ -10,10 +9,9 @@ const BlogPostTemplate= ({ data /* this prop will be injected by the GraphQL que
     return (
         <div>
             <title>Arvid Sandin - {frontmatter.title}</title>
-            <NavigationBar></NavigationBar>
             <Wrapper header={<div>{frontmatter.title}</div>} content={html}>
-            </Wrapper>
             <Footer></Footer>
+            </Wrapper>
         </div>
     )
 }

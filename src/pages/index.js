@@ -23,8 +23,8 @@ const IndexPage = () => {
           <Logo logo={LinkedIn} link='https://www.linkedin.com/in/arvid-sandin/' alt='LinkedIn logo'></Logo>
           <Logo logo={Github} link='https://github.com/arvidsandin' alt='Github logo'></Logo>
           <Logo logo={Instagram} link='https://www.instagram.com/arvidsandin/' alt='Instagram logo'></Logo>
+          <Footer></Footer>
         </Wrapper>
-        <Footer></Footer>
       </div>
     );
 };

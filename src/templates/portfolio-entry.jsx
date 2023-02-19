@@ -12,8 +12,8 @@ const PortfolioEntryTemplate= ({ data /* this prop will be injected by the Graph
             <title>Arvid Sandin - {frontmatter.title}</title>
             <NavigationBar></NavigationBar>
             <Wrapper header={frontmatter.headerLink ? <a href={frontmatter.headerLink} target='_blank' rel='noopener noreferrer'>{frontmatter.title}</a> : frontmatter.title} content={html}>
-            </Wrapper>
             <Footer></Footer>
+            </Wrapper>
         </div>
     )
   }
