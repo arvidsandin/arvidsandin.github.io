@@ -13,6 +13,7 @@ body.light-mode {
   --bgPrimary: #f2f2f2;
   --bgSecondary: #fff;
   --bgTertiary: #d7d7d7;
+  --bgQuartary: #f9f9f9;
   --transparantWeak: rgba(0,0,0,0.04);
   --transparantMedium: rgba(0,0,0,0.1);
   --transparantStrong: rgba(0,0,0,0.3);
@@ -27,6 +28,7 @@ body.light-mode {
   --bgPrimary: #222;
   --bgSecondary: #000;
   --bgTertiary: #282828;
+  --bgQuartary: #111;
   --transparantWeak: rgba(255,255,255,0.08);
   --transparantMedium: rgba(255,255,255,0.1);
   --transparantStrong: rgba(255,255,255,0.3);

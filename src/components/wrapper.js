@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Sidebar from './sidebar'
 import MainContent from './maincontent'
-import { wrapper, wrapperItem } from './wrapper.module.css'
+import { wrapper, wrapperItem, mainContentDiv } from './wrapper.module.css'
 
 const Wrapper = ({header, content, children}) => {
     return (
@@ -10,7 +10,7 @@ const Wrapper = ({header, content, children}) => {
             </Sidebar>
             <MainContent className={wrapperItem} id="mainContent">
                 <h1>{header}</h1>
-                <div dangerouslySetInnerHTML={{ __html: content }}></div>
+                <div className={mainContentDiv} dangerouslySetInnerHTML={{ __html: content }}></div>
                 {children}
             </MainContent>
             <Sidebar className={wrapperItem}>

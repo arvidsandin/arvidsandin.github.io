@@ -11,9 +11,32 @@
     flex-direction: row;
 }
 
+.navigation-bar-blog{
+    height: 40px;
+    line-height: 40px;
+}
+
 .button{
     color: var(--textSecondary);
     margin-right: 1em;
     margin-left: auto;
     padding: 0 1em;
+}
+
+.blog-link {
+    display: inline-block;
+    min-width: fit-content;
+    height: 100%;
+    padding: 0 1.5em;
+    color: var(--textSecondary);
+
+}
+
+.blog-link:hover{
+    text-decoration: none;
+    color: var(--textPrimary);
+}
+
+.blog-link:visited {
+    color: var(--textSecondary);
 }

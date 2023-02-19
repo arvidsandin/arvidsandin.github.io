@@ -4,10 +4,14 @@
   position: absolute;
   min-width: 100%;
   min-height: 100%;
-  padding-bottom: 2em;
+  /* padding-bottom has to be at least 2em so that no content is hidden under the footer */
+  padding-bottom: 3em;
   background-color: var(--bgPrimary);
   color: var(--textPrimary);
 }
 .wrapper-item{
   flex: 1 100%;
+}
+.main-content-div{
+  padding-bottom: 1em;
 }
