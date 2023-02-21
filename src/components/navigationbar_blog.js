@@ -1,15 +1,14 @@
 import * as React from 'react'
+import NavBarItem from './navbaritem'
 import useDarkMode from 'use-dark-mode';
-import Icon from './icon'
-import leftArrow from '../icons/arrow-left-lined.svg'
-import { navigationBar, navigationBarBlog, button, blogLink } from './navigationbar.module.css'
+import { navigationBar, button } from './navigationbar.module.css'
 
 const NavigationBarBlog = () => {
   const darkMode = useDarkMode(false);
 
   return (
-    <div className={`${navigationBar} ${navigationBarBlog}`}>
-        <Icon className={blogLink} logo={leftArrow} size='36px' link='/blog'></Icon>
+    <div className={navigationBar}>
+      <NavBarItem link='/' id='homelink' text='Portfolio'></NavBarItem>
       <button type="button" className={`${button} unselectable`} onClick={darkMode.toggle}>☀/☾</button>
     </div>
   );

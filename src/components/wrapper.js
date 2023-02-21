@@ -10,7 +10,7 @@ const Wrapper = ({header, content, children}) => {
             </Sidebar>
             <MainContent className={wrapperItem} id="mainContent">
                 <h1>{header}</h1>
-                <div className={mainContentDiv} dangerouslySetInnerHTML={{ __html: content }}></div>
+                {content && <div className={mainContentDiv} dangerouslySetInnerHTML={{ __html: content }}></div>}
                 {children}
             </MainContent>
             <Sidebar className={wrapperItem}>
