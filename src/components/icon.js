@@ -8,7 +8,7 @@ const Logo = (props) => {
         return (
             <a href={props.link} className={`${icon} ${iconClickable}`}>
                 <img
-                    src={props.logo}
+                    src={props.icon}
                     style={{ height: size, width: size }}
                     alt={props.alt}
                 />
@@ -19,7 +19,7 @@ const Logo = (props) => {
         return (
             <div className={icon}>
                 <img
-                    src={props.logo}
+                    src={props.icon}
                     style={{ height: size, width: size }}
                     alt={props.alt}
                 />

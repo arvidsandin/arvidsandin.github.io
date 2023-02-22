@@ -9,7 +9,7 @@ const NavigationBarBlogEntry = () => {
 
   return (
     <div className={`${navigationBar} ${navigationBarBlog}`}>
-        <Icon className={blogLink} logo={leftArrow} size='36px' link='/blog'></Icon>
+        <Icon className={blogLink} icon={leftArrow} size='36px' link='/blog'></Icon>
       <button type="button" className={`${button} unselectable`} onClick={darkMode.toggle}>☀/☾</button>
     </div>
   );

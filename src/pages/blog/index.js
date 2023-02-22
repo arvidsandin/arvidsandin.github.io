@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import MainContent from "../../components/maincontent"
 import Wrapper from "../../components/wrapper"
 import NavigationBarBlog from "../../components/navigationbar_blog"
+import Footer from "../../components/footer"
 
 
 const IndexPage = ({
@@ -28,6 +29,7 @@ const IndexPage = ({
     <NavigationBarBlog></NavigationBarBlog>
     <Wrapper header='Blog'>
       {Posts}
+      <Footer></Footer>
     </Wrapper>
   </div>
   );
