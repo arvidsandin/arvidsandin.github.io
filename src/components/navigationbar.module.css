@@ -16,13 +16,6 @@
     line-height: 40px;
 }
 
-.button{
-    color: var(--textSecondary);
-    margin-right: 1em;
-    margin-left: auto;
-    padding: 0 1em;
-    display: flex;
-}
 
 .blog-link {
     display: inline-block;
@@ -39,10 +32,4 @@
 
 .blog-link:visited {
     color: var(--textSecondary);
-}
-
-.light-dark-mode-icon{
-    color: var(--textSecondary);
-    padding: 0;
-    font-size: 24px;
 }

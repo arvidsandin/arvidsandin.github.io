@@ -1,0 +1,13 @@
+.button {
+    color: var(--textSecondary);
+    margin-right: 1em;
+    margin-left: auto;
+    padding: 0 1em;
+    display: flex;
+}
+
+.light-dark-mode-icon {
+    color: var(--textSecondary);
+    padding: 0;
+    font-size: 24px;
+}
