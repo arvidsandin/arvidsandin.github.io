@@ -1,8 +1,8 @@
 import React from "react"
 import { graphql } from "gatsby"
-import MainContent from "../../components/maincontent"
-import Wrapper from "../../components/wrapper"
 import NavigationBarBlog from "../../components/navigationbar_blog"
+import Wrapper from "../../components/wrapper"
+import MainContent from "../../components/maincontent"
 import Footer from "../../components/footer"
 
 
