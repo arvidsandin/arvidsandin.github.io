@@ -67,15 +67,21 @@ const LightDarkModeToggler = (props) => {
             </button>
 
             <div ref={menuContent} className={`${expandableContent} ${isExpanded ? expanded : ''}`}>
-                <button type="button" className={`${button} ${expandableContentItem} darkenOnHover unselectable`} onClick={startFollowingSystem}>
-                    <div > Follow system </div>
-                </button>
-                <button type="button" className={`${button} ${expandableContentItem} darkenOnHover unselectable`} onClick={() => {stopFollowingSystem(false)}}>
-                    <Icon icon={Sun} size='24px' alt='Change to light mode'></Icon>
-                </button>
-                <button type="button" className={`${button} ${expandableContentItem} darkenOnHover unselectable`} onClick={() => {stopFollowingSystem(true)}}>
-                    <Icon icon={Moon} size='18px' alt='Change to dark mode'></Icon>
-                </button>
+                {isExpanded && 
+                    <button type="button" className={`${button} ${expandableContentItem} darkenOnHover unselectable`} onClick={startFollowingSystem}>
+                        <div > Follow system </div>
+                    </button>
+                }
+                {isExpanded && 
+                    <button type="button" className={`${button} ${expandableContentItem} darkenOnHover unselectable`} onClick={() => {stopFollowingSystem(false)}}>
+                        <Icon icon={Sun} size='24px' alt='Change to light mode'></Icon>
+                    </button>
+                }
+                {isExpanded && 
+                    <button type="button" className={`${button} ${expandableContentItem} darkenOnHover unselectable`} onClick={() => {stopFollowingSystem(true)}}>
+                        <Icon icon={Moon} size='18px' alt='Change to dark mode'></Icon>
+                    </button>
+                }
             </div>
         </div>
     );

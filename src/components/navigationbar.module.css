@@ -17,10 +17,11 @@
 }
 
 .blog-link {
-    display: inline-block;
+    display: flex;
     min-width: fit-content;
+    justify-content: left;
     height: 100%;
-    padding: 0 1.5em;
+    padding: 0 1em;
     color: var(--textSecondary);
 }
 
@@ -31,4 +32,38 @@
 
 .blog-link:visited {
     color: var(--textSecondary);
+}
+
+.expandable-content {
+    display: flex;
+    flex-direction: column;
+    height: 0;
+    width: 12em;
+    background-color: var(--bgSecondary);
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* TODO: remove hard coded heights */
+.expanded {
+    opacity: 1;
+    height: 400%;
+}
+.expandable-content-item {
+    width: 100%;
+    height: 25%;
+    color: var(--textSecondary);
+}
+
+@media only screen and (max-width: 600px) {
+    .hide-on-mobile {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .hide-on-desktop {
+        display: none;
+    }
 }

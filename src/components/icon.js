@@ -8,7 +8,7 @@ const Logo = (props) => {
     const width = props.width || props.size || defaultSize;
     if (props.link) {
         return (
-            <a href={props.link} className={`${icon} ${iconClickable}`}>
+            <a href={props.link} className={`${icon} ${iconClickable} ${props.className}`}>
                 <img
                     src={props.icon}
                     style={{ height: height, width: width }}
@@ -19,7 +19,7 @@ const Logo = (props) => {
     }
     else {
         return (
-            <div className={icon}>
+            <div className={`${icon} ${props.className}`}>
                 <img
                     src={props.icon}
                     style={{ height: height, width: width }}
