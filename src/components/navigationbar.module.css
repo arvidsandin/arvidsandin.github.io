@@ -5,17 +5,16 @@
     line-height: 60px;
     box-shadow: 0 0 4px rgba(0,0,0,0.3);
     white-space:nowrap;
-    overflow-x: auto;
-    overflow-y: hidden;
     display: flex;
     flex-direction: row;
+    position: relative;
+    z-index: 2;
 }
 
 .navigation-bar-blog{
     height: 40px;
     line-height: 40px;
 }
-
 
 .blog-link {
     display: inline-block;
