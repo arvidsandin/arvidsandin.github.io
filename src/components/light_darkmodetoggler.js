@@ -5,43 +5,49 @@ import Sun from '../icons/weather-1.svg'
 import Moon from '../icons/weather-114.svg'
 import { button, lightDarkModeIcon, menu, expandableContent, expanded, expandableContentItem } from './light_darkmodetoggler.module.css'
 
+// To prevent build error
+const isBrowser = () => typeof window !== "undefined"
+
 const LightDarkModeToggler = (props) => {    
     const darkMode = useDarkMode(isSystemSetToDarkMode());
     const [isExpanded, setIsExpanded] = useState(false);
-    const [followSystem, setFollowSystem] = useState(localStorage.getItem('followSystemDarkMode'));
-    // check if the user has set a preference for following the system dark mode
-    if (followSystem === null) {
-        localStorage.setItem('followSystemDarkMode', 'true');
-        setFollowSystem(localStorage.getItem('followSystemDarkMode'));
-    }
+    const [followSystem, setFollowSystem] = useState(undefined);
 
     function startFollowingSystem(){
-        localStorage.setItem('followSystemDarkMode', 'true');
-        setFollowSystem(localStorage.getItem('followSystemDarkMode'));
+        if(isBrowser()){localStorage.setItem('followSystemDarkMode', 'true')};
+        if(isBrowser()){setFollowSystem(localStorage.getItem('followSystemDarkMode'))};
         isSystemSetToDarkMode() ? darkMode.enable() : darkMode.disable();
     }
 
     function stopFollowingSystem(isNewValueDarkMode){
-        localStorage.setItem('followSystemDarkMode', 'false');
-        setFollowSystem(localStorage.getItem('followSystemDarkMode'));
+        if(isBrowser()){localStorage.setItem('followSystemDarkMode', 'false')};
+        if(isBrowser()){setFollowSystem(localStorage.getItem('followSystemDarkMode'))};
         isNewValueDarkMode ? darkMode.enable() : darkMode.disable();
     }
 
     function isSystemSetToDarkMode() {
-        return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        return isBrowser() && window?.matchMedia && window?.matchMedia('(prefers-color-scheme: dark)').matches;
     }
 
     // look for changes in the system dark mode
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-        if (followSystem === 'true') {
-            event.matches ? darkMode.enable() : darkMode.disable();
-        }
-    });
+    if(isBrowser()){
+        window?.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (followSystem === 'true') {
+                event.matches ? darkMode.enable() : darkMode.disable();
+            }
+        });
+    }
 
     //Hide menu when clicking outside of it
     const menuExpander = useRef(null);
     const menuContent = useRef(null);
     useEffect(() => {
+        setFollowSystem(localStorage.getItem('followSystemDarkMode'))
+        if (followSystem === null || followSystem === undefined) {
+            if(isBrowser()){localStorage.setItem('followSystemDarkMode', 'true')};
+            if(isBrowser()){setFollowSystem(localStorage.getItem('followSystemDarkMode'))};
+        }
+
         function handleClickOutside(event) {
             const isClickInsideExcludedElement = menuExpander.current.contains(event.target) || menuContent.current.contains(event.target);
             if (!isClickInsideExcludedElement) {
@@ -56,7 +62,7 @@ const LightDarkModeToggler = (props) => {
         return () => {
             document.removeEventListener('click', handleClickOutside);
         };
-    }, []);
+    }, [followSystem]);
 
     return (
         <div className={menu}>
