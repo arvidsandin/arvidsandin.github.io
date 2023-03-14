@@ -47,6 +47,9 @@ const LightDarkModeToggler = (props) => {
             if(isBrowser()){localStorage.setItem('followSystemDarkMode', 'true')};
             if(isBrowser()){setFollowSystem(localStorage.getItem('followSystemDarkMode'))};
         }
+        else if (followSystem === 'true') {
+            isSystemSetToDarkMode() ? darkMode.enable() : darkMode.disable();
+        }
 
         function handleClickOutside(event) {
             const isClickInsideExcludedElement = menuExpander.current.contains(event.target) || menuContent.current.contains(event.target);
@@ -62,7 +65,7 @@ const LightDarkModeToggler = (props) => {
         return () => {
             document.removeEventListener('click', handleClickOutside);
         };
-    }, [followSystem]);
+    }, [followSystem, darkMode]);
 
     return (
         <div className={menu}>
