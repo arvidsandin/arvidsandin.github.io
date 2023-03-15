@@ -15,7 +15,7 @@ const IndexPage = () => {
         <Wrapper header='Arvid Sandin' content={
           "Hi! I'm Arvid Sandin and I'm currently studying towards a Master of Science in engineering degree in IT at Uppsala University. As a person I am always open to learn and appreciate well executed technical solutions"+
           '<br /><br />'+
-          'On this website, you will find some personal programming projects and experiments. The pages in the navigation bar are sorted by seriousness from left to right (top to bottom on mobile). If you want to get in touch, please use send a message in any of the services linked below.'+
+          'On this website, you will find some personal programming projects and experiments. The pages in the navigation bar are sorted by seriousness from left to right (top to bottom on mobile). If you want to get in touch, please send a message in any of the services linked below.'+
           '<br /><br />'+
           "If you're wondering about this website in particular, it's build with Gatsby.js and React.js and hosted with GitHub Pages. More details and the source code for can be found  <a href='https://github.com/arvidsandin/arvidsandin.github.io'>in the repository</a>."+
           '<br />'
