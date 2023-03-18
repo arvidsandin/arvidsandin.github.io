@@ -21,5 +21,5 @@ body{
   background: #fadadd;
 }
 #the-button, body{
-  transition: background 350ms ease-in-out;
+  transition: background var(--defaultTransition);
 }

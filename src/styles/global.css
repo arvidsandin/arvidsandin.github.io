@@ -3,11 +3,11 @@
     font: inherit;
     font-weight: revert;
     font-style: revert;
-    transition: background 350ms ease-in-out;
+    transition: background var(--defaultTransition);
 }
 @supports (-moz-appearance:none) {
     /* This causes a significant delay in webkit browsers between the background and text transitions*/
-    * {transition: background 350ms ease-in-out, color 350ms ease-in-out, filter 350ms ease-in-out}
+    * {transition: background var(--defaultTransition), color var(--defaultTransition), filter var(--defaultTransition)}
 }
 body.light-mode {
   --bgPrimary: #f2f2f2;
@@ -48,6 +48,7 @@ body{
     min-height: 100vh;
     background-color: var(--bgPrimary);
     position: relative;
+    --defaultTransition: 350ms ease-in-out;
 }
 a{
     text-decoration: none;

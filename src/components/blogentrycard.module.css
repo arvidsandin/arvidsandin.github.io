@@ -10,7 +10,7 @@ a:hover{
     color: var(--textPrimary);
     font-weight: bold;
     text-decoration: underline rgba(255, 255, 255, 0);
-    transition: text-decoration-color 350ms;
+    transition: text-decoration-color var(--defaultTransition), color var(--defaultTransition);
 }
 
 a:hover .title{
