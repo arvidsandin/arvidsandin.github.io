@@ -1,7 +1,8 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
+    siteUrl: "https://arvid.sandin.dev",
     title: "Arvid Sandin",
+    description: "Arvid Sandin's personal website",
   },
   plugins: [
     'gatsby-plugin-use-dark-mode',
