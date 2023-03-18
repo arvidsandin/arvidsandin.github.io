@@ -7,7 +7,7 @@
 }
 @supports (-moz-appearance:none) {
     /* This causes a significant delay in webkit browsers between the background and text transitions*/
-    * {transition: background 350ms ease-in-out, color 350ms ease-in-out}
+    * {transition: background 350ms ease-in-out, color 350ms ease-in-out, filter 350ms ease-in-out}
 }
 body.light-mode {
   --bgPrimary: #f2f2f2;
@@ -20,6 +20,7 @@ body.light-mode {
   --headings: #333;
   --textPrimary: #000;
   --textSecondary: #444;
+  --textTertiary: #666;
   --textLink: #0077aa;
   /* if nothing else is suitable */
   --filter: invert(0);
@@ -36,6 +37,7 @@ body.light-mode {
   --headings: #ddd;
   --textPrimary: #fff;
   --textSecondary: #d7d7d7;
+  --textTertiary: #aaa;
   --textLink: #6ab4d3;
   --filter: invert(1);
 }

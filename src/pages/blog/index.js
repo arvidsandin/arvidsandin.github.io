@@ -2,8 +2,8 @@ import React from "react"
 import { graphql } from "gatsby"
 import NavigationBarBlog from "../../components/navigationbar_blog"
 import Wrapper from "../../components/wrapper"
-import MainContent from "../../components/maincontent"
 import Footer from "../../components/footer"
+import BlogEntryCard from "../../components/blogentrycard"
 
 
 const IndexPage = ({
@@ -14,13 +14,7 @@ const IndexPage = ({
   const Posts = edges
     // .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
     .map(edge =>
-      <MainContent key={edge.node.id} >
-        <a href={`/blog${edge.node.frontmatter.slug}`}>
-          <h2>{edge.node.frontmatter.title}</h2>
-        </a>
-          <p>{edge.node.excerpt}</p>
-        <p>{edge.node.frontmatter.date}</p>
-      </MainContent>
+      <BlogEntryCard key={edge.node.id} data={edge.node}></BlogEntryCard>
     )
 
   return (
