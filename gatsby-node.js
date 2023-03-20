@@ -21,7 +21,7 @@ async function createPages(path, component, pathRegex, graphql, createPage){
   // Get all the Markdown nodes that are in the selected folder
   const result = await graphql(`
     {
-      portfolioEntries: allMarkdownRemark(
+      subfolderEntries: allMarkdownRemark(
         filter: {fileAbsolutePath: {regex: "${pathRegex}"}}
       ){
         nodes {
@@ -35,7 +35,7 @@ async function createPages(path, component, pathRegex, graphql, createPage){
   `)
 
   // Generate pages
-  const posts = result.data.portfolioEntries.nodes
+  const posts = result.data.subfolderEntries.nodes
   if (posts.length > 0) {
     posts.forEach((post, index) => {
 
