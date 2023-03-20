@@ -27,7 +27,8 @@
     "gatsby-transformer-sharp": "^5.7.0",
     "reach": "^1.0.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "rss": "^1.2.2"
   },
   "devDependencies": {
     "gatsby-plugin-goatcounter": "^0.4.0",
