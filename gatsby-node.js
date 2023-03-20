@@ -1,4 +1,6 @@
 const path = require(`path`)
+const { createRSSFeed } = require('./rss-feed');
+
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
@@ -10,6 +12,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   await createPages("/blog", blogPost, "/\/blog\//", graphql, createPage)
   await createPages("", portfolioEntry, "/\/portfolio\//", graphql, createPage)
 }
+
+exports.onPostBuild = async ({ graphql, actions }) => {
+  await createRSSFeed({ graphql, actions });
+};
 
 async function createPages(path, component, pathRegex, graphql, createPage){
   // Get all the Markdown nodes that are in the selected folder
