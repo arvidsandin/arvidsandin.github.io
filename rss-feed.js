@@ -48,7 +48,10 @@ exports.createRSSFeed = async ({ graphql, actions  }) => {
             url: `${siteMetadata.siteUrl}/blog${node.frontmatter.slug}`,
             date: node.frontmatter.date,
             guid: node.frontmatter.slug,
-            
+            custom_elements: [
+                { 'content:encoded': node.html },
+                { 'dc:creator': siteMetadata.author },
+            ],
         });
     });
 

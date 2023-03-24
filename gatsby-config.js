@@ -3,6 +3,7 @@ module.exports = {
     siteUrl: "https://arvid.sandin.dev",
     title: "Arvid Sandin",
     description: "Arvid Sandin's personal website",
+    author: "Arvid Sandin",
   },
   plugins: [
     'gatsby-plugin-use-dark-mode',

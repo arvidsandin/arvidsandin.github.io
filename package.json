@@ -7,12 +7,15 @@
     "gatsby"
   ],
   "scripts": {
+
+    "__COMMENT__": "there is a problem with rss generation, so gatsby build needs to be run twice, otherwise there are be no items in the rss feed",
+    
     "develop": "gatsby develop",
     "start": "gatsby develop",
-    "build": "gatsby build",
+    "build": "gatsby build && gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+    "deploy": "gatsby build --prefix-paths && gatsby build --prefix-paths && gh-pages -d public"
   },
   "dependencies": {
     "@reach/router": "^1.3.4",
