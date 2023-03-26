@@ -24,6 +24,20 @@ body.light-mode {
   --textLink: #0077aa;
   /* if nothing else is suitable */
   --filter: invert(0);
+
+    /* Prismjs, okaidia theme*/
+    --prismjs-default: #f8f8f2;
+    --prismjs-background: #272822;
+    --prismjs-shadow: rgba(0, 0, 0, 0.3);
+    --prismjs-comment: #708090;
+    --prismjs-punctuation: #f8f8f2;
+    --prismjs-property: #f92672;
+    --prismjs-boolean: #ae81ff;
+    --prismjs-selector: #a6e22e;
+    --prismjs-operator: #f8f8f2;
+    --prismjs-atrule: #e6db74;
+    --prismjs-keyword: #66d9ef;
+    --prismjs-regex: #fd971f;    
 }body.dark-mode {
   -webkit-font-smoothing: antialiased;
   --bgPrimary: #222;
@@ -40,6 +54,20 @@ body.light-mode {
   --textTertiary: #aaa;
   --textLink: #6ab4d3;
   --filter: invert(1);
+
+    /* Prismjs, slightly edited default theme */
+    --prismjs-default: #000000;
+    --prismjs-background: #f5f2f0;
+    --prismjs-shadow: rgba(255, 255, 255, 0.3);
+    --prismjs-comment: #647382;
+    --prismjs-punctuation: #999999;
+    --prismjs-property: #990055;
+    --prismjs-boolean: #764dc0;
+    --prismjs-selector: #690;
+    --prismjs-operator: #a67f59;
+    --prismjs-atrule: #8f680e;
+    --prismjs-keyword: #0E7A90;
+    --prismjs-regex: #ee9900;  
 }
 body{
     font-family: sans-serif;
@@ -91,9 +119,6 @@ h2 {
 }
 p{
     color: var(--primaryText);
-}
-code{
-    font: revert;
 }
 
 .unselectable {
