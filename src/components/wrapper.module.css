@@ -15,3 +15,9 @@
 .main-content-div{
   padding-bottom: 1em;
 }
+
+.created-date{
+  font-size: 0.8em;
+  color: var(--textTertiary);
+  text-align: right;
+}

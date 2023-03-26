@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import NavigationBarBlogEntry from '../components/navigationbar_blogEntry'
 import Wrapper from '../components/wrapper'
 import Footer from '../components/footer'
+import EditNote from "../components/editnote"
 
 const BlogPostTemplate= ({ data /* this prop will be injected by the GraphQL query below.*/}) => {
     const { markdownRemark } = data // data.markdownRemark holds your post data
@@ -11,7 +12,8 @@ const BlogPostTemplate= ({ data /* this prop will be injected by the GraphQL que
         <div>
             <title>Arvid Sandin - {frontmatter.title}</title>
             <NavigationBarBlogEntry></NavigationBarBlogEntry>
-            <Wrapper header={<div>{frontmatter.title}</div>} content={html}>
+            <Wrapper header={frontmatter.title} date={frontmatter.date} content={html}>
+            <EditNote edited={frontmatter.lastChanged} created={frontmatter.date}></EditNote>
             <Footer></Footer>
             </Wrapper>
         </div>
@@ -31,6 +33,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         title
         slug
+        lastChanged(formatString: "MMMM DD, YYYY")
       }
     }
   }

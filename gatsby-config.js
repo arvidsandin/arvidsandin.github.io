@@ -19,6 +19,7 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-remark',
       options: {
+        "excerpt_separator": "<!-- end excerp -->",
         plugins: [
           {
             resolve: `gatsby-remark-images`,
