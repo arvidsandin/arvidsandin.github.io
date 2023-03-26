@@ -60,7 +60,7 @@ body.light-mode {
     --prismjs-background: #f5f2f0;
     --prismjs-shadow: rgba(255, 255, 255, 0.3);
     --prismjs-comment: #647382;
-    --prismjs-punctuation: #999999;
+    --prismjs-punctuation: #222222;
     --prismjs-property: #990055;
     --prismjs-boolean: #764dc0;
     --prismjs-selector: #690;
