@@ -25,7 +25,7 @@ const IndexPage = () => {
           <Logo logo={LinkedIn} link='https://www.linkedin.com/in/arvid-sandin/' alt='LinkedIn logo' rel_me={true} ></Logo>
           <Logo logo={Github} link='https://github.com/arvidsandin' alt='Github logo' rel_me={true} ></Logo>
           <Logo logo={Instagram} link='https://www.instagram.com/arvidsandin/' alt='Instagram logo' rel_me={true} ></Logo>
-          <Logo logo={Mastodon} link='https://mas.to/@arvidsandin' alt='Mastodon logoo' rel_me={true} ></Logo>
+          <Logo logo={Mastodon} link='https://mas.to/@arvidsandin' alt='Mastodon logo' rel_me={true} ></Logo>
           <Logo logo={Pixelfed} link='https://pixey.org/arvidsandin' alt='Pixelfed logo' rel_me={true} ></Logo>
           <Footer></Footer>
         </Wrapper>
