@@ -6,6 +6,8 @@ import Logo from '../components/logo'
 import Github from '../logos/githubLogo.svg'
 import LinkedIn from '../logos/linkedinLogo.svg'
 import Instagram from '../logos/instagramLogo.svg'
+import Mastodon from '../logos/mastodonLogo.svg'
+import Pixelfed from '../logos/pixelfedLogo.svg'
 
 const IndexPage = () => {
     return (
@@ -20,9 +22,11 @@ const IndexPage = () => {
           "If you're wondering about this website in particular, it's build with Gatsby.js and React.js and hosted with GitHub Pages. More details and the source code for can be found  <a href='https://github.com/arvidsandin/arvidsandin.github.io'>in the repository</a>."+
           '<br />'
         }>
-          <Logo logo={LinkedIn} link='https://www.linkedin.com/in/arvid-sandin/' alt='LinkedIn logo'></Logo>
-          <Logo logo={Github} link='https://github.com/arvidsandin' alt='Github logo'></Logo>
-          <Logo logo={Instagram} link='https://www.instagram.com/arvidsandin/' alt='Instagram logo'></Logo>
+          <Logo logo={LinkedIn} link='https://www.linkedin.com/in/arvid-sandin/' alt='LinkedIn logo' rel_me={true} ></Logo>
+          <Logo logo={Github} link='https://github.com/arvidsandin' alt='Github logo' rel_me={true} ></Logo>
+          <Logo logo={Instagram} link='https://www.instagram.com/arvidsandin/' alt='Instagram logo' rel_me={true} ></Logo>
+          <Logo logo={Mastodon} link='https://mas.to/@arvidsandin' alt='Mastodon logoo' rel_me={true} ></Logo>
+          <Logo logo={Pixelfed} link='https://pixey.org/arvidsandin' alt='Pixelfed logo' rel_me={true} ></Logo>
           <Footer></Footer>
         </Wrapper>
       </div>

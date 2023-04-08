@@ -40,5 +40,6 @@ Distributed under the GNU General Public License v3.0 License. See [LICENSE](LIC
 
 ## Acknowledgements
 
-* Icons from [iconmonstr](https://iconmonstr.com)
+* Mastodon icon from [Mastodon](https://joinmastodon.org/branding) and Pixelfed icon from [Pixelfed](https://pixelfed.org/)
+* Other icons from [iconmonstr](https://iconmonstr.com)
 * Light/dark mode made with [gatsby-plugin-use-dark-mode](https://github.com/wKovacs64/gatsby-plugin-use-dark-mode)
