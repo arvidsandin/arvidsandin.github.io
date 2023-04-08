@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg:svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="164px"
+   height="66px"
+   viewBox="0 0 164 66"
+   version="1.1"
+   id="svg15"
+   sodipodi:docname="full_white_svg_pixelfed-full-white.svg"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+  <svg:metadata
+     id="metadata19">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </svg:metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1842"
+     inkscape:window-height="1051"
+     id="namedview17"
+     showgrid="false"
+     inkscape:zoom="5.8465658"
+     inkscape:cx="66.611309"
+     inkscape:cy="31.746192"
+     inkscape:window-x="69"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg15" />
+  <script>/* AskBlocker (extension) */
+      (function(){
+        
+  let hasInteracted; // i.e. click, tap, or keypress
+
+  window.addEventListener(&quot;load&quot;, function() {
+    const onInteraction = function() {
+      hasInteracted = true;
+
+      // Remove event listeners; we don't want to be listening to every key press, etc.
+      document.body.removeEventListener(&quot;click&quot;, onInteraction, true);
+      document.removeEventListener(&quot;keypress&quot;, onInteraction, true);
+      window.removeEventListener(&quot;touchstart&quot;, onInteraction, true);
+    };
+    document.body.addEventListener(&quot;click&quot;, onInteraction, true);
+    document.addEventListener(&quot;keypress&quot;, onInteraction, true);
+    window.addEventListener(&quot;touchstart&quot;, onInteraction, true);
+  }, false);
+
+  // Let's create some custom errors so we can emulate browser behaviour as closely as possible
+  class CustomError extends Error {
+    constructor(origin, ...args) {
+      super(...args);
+
+      // Maintains proper stack trace for where our error was thrown (only available on V8)
+      if (Error.captureStackTrace) {
+        Error.captureStackTrace(this, origin);
+      }
+    }
+  }
+  class DOMException extends CustomError {}
+  class PositionError extends CustomError {}
+
+  /**
+   * This is called whenever a request is blocked. It contacts our extension to update UI, etc.
+   * @param {subject} options
+   * @property {string} options.name e.g. getUserMedia or geolocation.
+   * @property {object} [additionalInfo]
+   */
+  const onBlock = function(name, additionalInfo) {
+    window.postMessage(
+      {
+        // wrap in an additional object to avoid any of the page scripts accidentally reacting to it
+        _askBlocker: {
+          type: &quot;onBlock&quot;,
+          payload: { name, additionalInfo }
+        }
+      },
+      &quot;*&quot;
+    );
+  };
+
+  /**
+   * Whether the user has responsed to a request to enable this permission before, i.e. granted or denied it.
+   * This is useful because if they have, then allowing the request won't trigger a popup, so we can let the browser do its thing.
+   * @param {string} name - See permission registry: https://w3c.github.io/permissions/#permission-registry.
+   * @param {object} [additionalArgs] - Contains any properties that need to be passed to the query call as well (e.g. sysex for MIDI).
+   * @returns {object} - a promise which resolves to a Boolean
+   */
+  const hasRespondedToRequestPreviously = function(name, additionalArgs = {}) {
+    if (!navigator.permissions) {
+      return Promise.resolve(false);
+    }
+
+    return navigator.permissions
+      .query(Object.assign(additionalArgs, { name }))
+      .then(function(result) {
+        return [&quot;denied&quot;, &quot;granted&quot;].includes(result.state);
+      })
+      .catch(function() {
+        return false;
+      });
+  };
+
+  const shouldAllowRequest = function() {
+    // Don't block if they're on a chrome:// or about:// page
+    return (
+      [&quot;about:&quot;, &quot;chrome:&quot;].includes(window.location.protocol)
+      // or if it's localhost
+      || [&quot;localhost&quot;, &quot;127.0.0.1&quot;].includes(window.location.hostname)
+      // or if they've navigated to this page from another page on the same domain
+      || (
+        document.referrer
+        &amp;&amp; document.referrer !== window.location.href
+        &amp;&amp; new RegExp(`^[a-z]+\:\/\/${window.location.host}`).test(document.referrer)
+      )
+      // or the user interacted with the page
+      || hasInteracted
+    );
+  };
+
+  if (&quot;geolocation&quot; in navigator) {
+    const method = navigator.geolocation.getCurrentPosition;
+    Object.assign(navigator.geolocation, {
+      getCurrentPosition: function(successCallback, errorCallback, options) {
+        const args = arguments;
+        hasRespondedToRequestPreviously(&quot;geolocation&quot;).then(
+          hasRespondedPreviously =&gt; {
+            if (hasRespondedPreviously || shouldAllowRequest()) {
+              method.apply(navigator.geolocation, args);
+              return;
+            }
+
+            onBlock(&quot;geolocation&quot;, { options });
+            errorCallback(new PositionError(method, &quot;User denied Geolocation&quot;));
+          }
+        );
+      }
+    });
+  }
+
+  const prepGetUserMedia = function({ audio, video } = {}) {
+    const permissionsToCheck = [];
+    if (audio) {
+      // microphone or speaker
+      permissionsToCheck.push(
+        hasRespondedToRequestPreviously(&quot;microphone&quot;).then(function(hasRespondedPreviously) {
+          if (hasRespondedPreviously) {
+            return true;
+          }
+          return hasRespondedToRequestPreviously(&quot;speaker&quot;);
+        })
+      );
+    }
+    if (video) {
+      permissionsToCheck.push(hasRespondedToRequestPreviously(&quot;camera&quot;));
+    }
+
+    let hasRespondedPreviously;
+    // since hasRespondedToRequestPreviously resolves with false sometimes, the Promise.all call can return an array of Booleans
+    if (permissionsToCheck.length) {
+      hasRespondedPreviously = Promise.all(permissionsToCheck).then(function(permissions) {
+        return permissions.every(hasResponded =&gt; hasResponded);
+      });
+    } else {
+      hasRespondedPreviously = Promise.resolve(false);
+    }
+
+    return {
+      hasRespondedPreviously
+    };
+  };
+
+  // Deprecated callback based getUserMedia
+  if (&quot;getUserMedia&quot; in navigator) {
+    const method = navigator.getUserMedia;
+    navigator.getUserMedia = function({ audio, video } = {}, successCallback, errorCallback) {
+      const args = arguments;
+      const { hasRespondedPreviously } = prepGetUserMedia({ audio, video });
+
+      hasRespondedPreviously.then(hasResponded =&gt; {
+        if (hasResponded || shouldAllowRequest()) {
+          method.apply(navigator, arguments);
+          return;
+        }
+
+        onBlock(&quot;getUserMedia&quot;, {
+          audio: !!audio,
+          video: !!video
+        });
+        errorCallback(new DOMException(method, &quot;Permission dismissed&quot;));
+      });
+    };
+  }
+
+  // Promise based getUserMedia
+  if (&quot;mediaDevices&quot; in navigator &amp;&amp; &quot;getUserMedia&quot; in navigator.mediaDevices) {
+    const method = navigator.mediaDevices.getUserMedia;
+    navigator.mediaDevices.getUserMedia = function({ audio, video }) {
+      const args = arguments;
+      const { hasRespondedPreviously } = prepGetUserMedia({ audio, video });
+
+      return hasRespondedPreviously.then(function(hasResponded) {
+        if (hasResponded || shouldAllowRequest()) {
+          return method.apply(navigator.mediaDevices, args);
+        }
+
+        onBlock(&quot;getUserMedia&quot;, {
+          audio: !!audio,
+          video: !!video
+        });
+        return new Promise(function() {});
+      });
+    };
+  }
+
+  if (&quot;Notification&quot; in window) {
+    const method = Notification.requestPermission;
+    class WrappedNotification extends Notification {
+      static requestPermission(callback) {
+        const args = arguments;
+
+        return hasRespondedToRequestPreviously(&quot;notifications&quot;).then(hasRespondedPreviously =&gt; {
+          if (hasRespondedPreviously || this.shouldAllowRequest()) {
+            return method.apply(this, args);
+          }
+
+          onBlock(&quot;notifications&quot;);
+          const result = &quot;default&quot;;
+          // If they're using the old deprecated callback-based version of the API
+          if (callback) {
+            callback(result);
+          }
+          return Promise.resolve(result);
+        });
+      }
+    }
+    WrappedNotification.shouldAllowRequest = shouldAllowRequest;
+    window.Notification = WrappedNotification;
+  }
+
+  if (&quot;requestMIDIAccess&quot; in navigator) {
+    const method = navigator.requestMIDIAccess;
+    navigator.requestMIDIAccess = function({ sysex } = {}) {
+      const args = arguments;
+
+      // If they're requesting sysex, we need to query the permissions API with that too, otherwise we could get false positives
+      return hasRespondedToRequestPreviously(&quot;midi&quot;, { sysex }).then(hasRespondedPreviously =&gt; {
+        if (hasRespondedPreviously || shouldAllowRequest()) {
+          return method.apply(navigator, args);
+        }
+
+        onBlock(&quot;midi&quot;, {
+          sysex: !!sysex
+        });
+        throw new DOMException(
+          method,
+          &quot;An attempt was made to break through the security policy of the user agent.&quot;
+        );
+      });
+    };
+  }
+
+  if (&quot;storage&quot; in navigator &amp;&amp; &quot;persist&quot; in navigator.storage) {
+    const method = navigator.storage.persist;
+    navigator.storage.persist = function(...args) {
+      return hasRespondedToRequestPreviously(&quot;persisted-storage&quot;)
+        .then(function(hasRespondedPreviously) {
+          if (hasRespondedPreviously || shouldAllowRequest()) {
+            return method.apply(navigator.storage, args);
+          }
+
+          onBlock(&quot;persistent-storage&quot;);
+          return false;
+        });
+    };
+  }
+}
+      )()</script>
+  <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+  <svg:title
+     id="title2">full/white/svg/pixelfed-full-white</svg:title>
+  <svg:desc
+     id="desc4">Created with Sketch.</svg:desc>
+  <svg:defs
+     id="defs6" />
+  <svg:g
+     id="Page-1"
+     style="fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1">
+    <svg:g
+       id="full-copy-12"
+       style="fill:#000000">
+      <svg:g
+         id="Group-6"
+         transform="translate(18,17)"
+         style="fill:#000000">
+        <svg:g
+           id="Group-12"
+           style="fill:#000000">
+          <svg:path
+             d="M 16,32 C 7.163444,32 0,24.836556 0,16 0,7.163444 7.163444,0 16,0 24.836556,0 32,7.163444 32,16 32,24.836556 24.836556,32 16,32 Z M 14.729802,19.49313 h 2.935135 c 2.765014,0 5.006501,-2.182092 5.006501,-4.873838 0,-2.691746 -2.241487,-4.8738374 -5.006501,-4.8738374 h -4.23627 c -1.595201,0 -2.888366,1.2588984 -2.888366,2.8118294 v 10.944014 z"
+             id="Combined-Shape"
+             inkscape:connector-curvature="0"
+             style="fill:#000000" />
+        </svg:g>
+      </svg:g>
+    </svg:g>
+  </svg:g>
+</svg:svg>
