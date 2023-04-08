@@ -5,8 +5,8 @@ import { logo } from '../components/logo.module.css'
 const Logo = (props) => {
     const size = props.size || 32
     return (
-        <a href={props.link} className={logo} target='_blank' rel='noopener noreferrer'>
-            <img
+        <a href={props.link} className={logo} target='_blank' rel={`noopener noreferrer${props.rel_me ? ' me' : ''}`}>
+        <img
                 src={props.logo}
                 style={{ height: size, width: size }}
                 alt={props.alt}
