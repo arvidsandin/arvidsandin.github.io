@@ -42,17 +42,17 @@ const NavigationBar = () => {
           {isExpanded &&
             <NavBarItem className={expandableContentItem} link='/' id='homelink' text='Home'></NavBarItem>
           }{isExpanded &&
-          <NavBarItem className={expandableContentItem} link='/colorCodes' id='colorcodesLink' text='Color Codes'></NavBarItem>
-          }{isExpanded &&
           <NavBarItem className={expandableContentItem} link='/custom-top-sort' id='custom-top-sortLink' text='Custom top sort'></NavBarItem>
+          }{isExpanded &&
+          <NavBarItem className={expandableContentItem} link='/colorCodes' id='colorcodesLink' text='Color Codes'></NavBarItem>
           }{isExpanded &&
           <NavBarItem className={expandableContentItem} link='/draw-contest' id='drawcontestLink' text='Draw contest'></NavBarItem>
           }
         </div>
       </div>
       <NavBarItem className={hideOnMobile} link='/' id='homelink' text='Home'></NavBarItem>
-      <NavBarItem className={hideOnMobile} link='/colorCodes' id='colorcodesLink' text='Color Codes'></NavBarItem>
       <NavBarItem className={hideOnMobile} link='/custom-top-sort' id='custom-top-sortLink' text='Custom top sort'></NavBarItem>
+      <NavBarItem className={hideOnMobile} link='/colorCodes' id='colorcodesLink' text='Color Codes'></NavBarItem>
       <NavBarItem className={hideOnMobile} link='/draw-contest' id='drawcontestLink' text='Draw contest'></NavBarItem>
       <LightDarkModeToggler></LightDarkModeToggler>
     </div>
