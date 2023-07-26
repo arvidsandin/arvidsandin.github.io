@@ -42,9 +42,11 @@ pre[class*="language-"] {
 
 /* Inline code */
 :not(pre)>code[class*="language-"] {
-    padding: .1em;
+    padding: .2em;
     border-radius: .3em;
     white-space: normal;
+    filter: invert(1);
+    word-break: break-all;
 }
 
 .token.comment,
