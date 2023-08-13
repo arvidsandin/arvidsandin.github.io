@@ -117,6 +117,16 @@ h2 {
     font-size: 1.3em;
     font-weight: bold;
 }
+h3 {
+    color: var(--textPrimary);
+    font-size: 1.1em;
+    font-weight: bold;
+}
+h4 {
+    color: var(--textPrimary);
+    font-size: 1em;
+    font-weight: bold;
+}
 p{
     color: var(--primaryText);
 }
