@@ -10,7 +10,7 @@
   color: var(--textPrimary);
 }
 .wrapper-item{
-  flex: 1 100%;
+  flex: 1;
 }
 .main-content-div{
   padding-bottom: 1em;

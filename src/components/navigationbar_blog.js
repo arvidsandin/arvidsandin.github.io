@@ -6,7 +6,7 @@ import { navigationBar } from './navigationbar.module.css'
 const NavigationBarBlog = () => {
   return (
     <div className={navigationBar}>
-      <NavBarItem link='/' id='homelink' text='Portfolio'></NavBarItem>
+      <NavBarItem link='/' id='homelink' text='Home'></NavBarItem>
       <LightDarkModeToggler></LightDarkModeToggler>
     </div>
   );

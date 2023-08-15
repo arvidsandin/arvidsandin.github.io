@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { sidebar } from './sidebar.module.css'
 
-const Sidebar = ({children}) => {
+const Sidebar = ({classes, children}) => {
     return (
-        <div className={sidebar}>
+        <div className={`${sidebar} ${classes}`}>
             {children}
         </div>
     );

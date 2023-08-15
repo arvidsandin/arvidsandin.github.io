@@ -14,6 +14,7 @@ const Logo = (props) => {
                     style={{ height: height, width: width }}
                     alt={props.alt}
                 />
+                {props.children}
             </a>
         );
     }
@@ -25,6 +26,7 @@ const Logo = (props) => {
                     style={{ height: height, width: width }}
                     alt={props.alt}
                 />
+                {props.children}
             </div>
         );
     }

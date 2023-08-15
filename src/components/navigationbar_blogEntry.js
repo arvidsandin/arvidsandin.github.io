@@ -7,7 +7,7 @@ import { navigationBar, navigationBarBlog, blogLink } from './navigationbar.modu
 const NavigationBarBlogEntry = () => {
   return (
     <div className={`${navigationBar} ${navigationBarBlog}`}>
-      <Icon className={blogLink} icon={leftArrow} size='36px' link='/blog'></Icon>
+      <Icon className={blogLink} icon={leftArrow} size='36px' link='/blog'>Back to blog</Icon>
       <LightDarkModeToggler></LightDarkModeToggler>
     </div>
   );
