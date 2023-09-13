@@ -4,6 +4,8 @@ import NavigationBarBlog from "../../components/navigationbar_blog"
 import Wrapper from "../../components/wrapper"
 import Footer from "../../components/footer"
 import BlogEntryCard from "../../components/blogentrycard"
+import Icon from "../../components/icon"
+import rssLogo from "../../logos/rss.svg"
 
 
 const IndexPage = ({
@@ -23,7 +25,7 @@ const IndexPage = ({
     <NavigationBarBlog></NavigationBarBlog>
     <Wrapper header='Blog'>
       {Posts}
-      <Footer></Footer>
+      <Footer><Icon icon={rssLogo} link='/blog/rss.xml'></Icon></Footer>
     </Wrapper>
   </div>
   );
