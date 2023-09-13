@@ -22,7 +22,7 @@
     justify-content: left;
     height: 100%;
     padding: 0 1em;
-    color: var(--textSecondary);
+    color: var(--textTertiary);
 }
 
 .blog-link:hover{
@@ -31,7 +31,7 @@
 }
 
 .blog-link:visited {
-    color: var(--textSecondary);
+    color: var(--textTertiary);
 }
 
 .expandable-content {
