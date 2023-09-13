@@ -4,6 +4,8 @@ module.exports = {
     title: "Arvid Sandin",
     description: "Arvid Sandin's personal website",
     author: "Arvid Sandin",
+    // TODO: create and use og-image
+    image: "/icons/icon-512x512.png",
   },
   plugins: [
     'gatsby-plugin-use-dark-mode',

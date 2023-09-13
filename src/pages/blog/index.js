@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { Metadata } from "../../components/metadata"
 import NavigationBarBlog from "../../components/navigationbar_blog"
 import Wrapper from "../../components/wrapper"
 import Footer from "../../components/footer"
@@ -21,7 +22,6 @@ const IndexPage = ({
 
   return (
   <div>
-    <title>Arvid Sandin - Blog</title>
     <NavigationBarBlog></NavigationBarBlog>
     <Wrapper header='Blog'>
       {Posts}
@@ -53,3 +53,7 @@ export const pageQuery = graphql`
     }
   }
 `
+
+export const Head = () => (
+  <Metadata title="Blog" />
+)

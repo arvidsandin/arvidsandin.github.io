@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Metadata } from '../components/metadata'
 import NavigationBar from '../components/navigationbar'
 import Wrapper from '../components/wrapper'
 import Footer from '../components/footer'
@@ -34,3 +35,7 @@ const IndexPage = () => {
 };
 
 export default IndexPage
+
+export const Head = () => (
+  <Metadata />
+)
