@@ -16,7 +16,7 @@ If you google something and notice that half the time, you always click on the s
 
 For example, if you're always looking up facts about things, you could get straight to Wikipedia. If you're learning a language, you might want to get to bab.la for translations or if you're working with a new programming framework, Stack Overflow could be your target instead.
 
-After just a couple of minutes of setup, you can easily get there by typing one or a few extra letters before the search term, such as "w" for Wikipedia, "b" for bab.la and "sof" for Stack Overflow respectively, which some example searches being `w united states senate`, `b esperanza` and `sof react error nothing was returned from render`.
+After just a couple of minutes of setup, you can easily get there by typing one or a few extra letters before the search term, such as "w" for Wikipedia, "b" for bab.la and "sof" for Stack Overflow respectively, which some example searches being `w united states senate`, `b esperanza` and `sof copy object in javascript`.
 
 ## Adding shortcuts
 
