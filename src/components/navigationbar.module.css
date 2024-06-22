@@ -48,7 +48,7 @@
 /* TODO: remove hard coded heights */
 .expanded {
     opacity: 1;
-    height: 400%;
+    height: 600%;
 }
 .expandable-content-item {
     width: 100%;
