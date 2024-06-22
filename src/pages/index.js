@@ -16,7 +16,7 @@ const IndexPage = () => {
         <title>Arvid Sandin</title>
         <NavigationBar></NavigationBar>
         <Wrapper header='Arvid Sandin' content={
-          "Hi! I'm Arvid Sandin and I'm currently studying towards a Master of Science in engineering degree in IT at Uppsala University. As a person I am always open to learn and appreciate well executed technical solutions"+
+          "Hi! I'm Arvid Sandin and I'm a system developer with a Master of Science in engineering degree in IT. As a person I am always open to learn and appreciate well executed technical solutions"+
           '<br /><br />'+
           'In the navigation bar, you will find some of my personal programming projects and experiments. If you want to get in touch, please send a message in any of the services linked below.'+
           '<br /><br />'+
