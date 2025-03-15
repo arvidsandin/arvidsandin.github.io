@@ -13,15 +13,12 @@ const NavigationBar = () => {
   const menuContent = useRef(null);
   useEffect(() => {
     function handleClick(event) {
-      console.log("here");
       const isClickInsideExcludedElement = menuContent.current.contains(event.target);
       if (menuExpander.current.contains(event.target)) {
         setIsExpanded(!isExpanded);
-        console.log("here3");
       }
       else if (!isClickInsideExcludedElement) {
         setIsExpanded(false);
-        console.log("here2");
       }
     }
 
