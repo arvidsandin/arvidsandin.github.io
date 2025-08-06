@@ -1,0 +1,49 @@
+---
+import Icon from "./icon.astro";
+import LightDarkModeToggler from "./light_darkmodetoggler.astro";
+import leftArrow from "../icons/arrow-left-lined.svg";
+---
+
+<div class="navigation-bar navigation-bar-blog">
+  <Icon class="blog-link" icon={leftArrow.src} size="36px" link="/blog"
+    >Back to blog</Icon
+  >
+  <LightDarkModeToggler />
+</div>
+<style>
+  .navigation-bar {
+    width: 100%;
+    background: var(--bgSecondary);
+    height: 60px;
+    line-height: 60px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    z-index: 2;
+  }
+
+  .navigation-bar-blog {
+    height: 40px;
+    line-height: 40px;
+  }
+
+  .blog-link {
+    display: flex;
+    min-width: fit-content;
+    justify-content: left;
+    height: 100%;
+    padding: 0 1em;
+    color: var(--textTertiary);
+  }
+
+  .blog-link:hover {
+    text-decoration: none;
+    color: var(--textPrimary);
+  }
+
+  .blog-link:visited {
+    color: var(--textTertiary);
+  }
+</style>

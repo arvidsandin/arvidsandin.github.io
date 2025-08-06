@@ -4,8 +4,7 @@ This is the code fo my personal website and portfolio which can be found at [arv
 
 ### Built With
 
-* [React.js](https://reactjs.org/)
-* [Gatsby.js](https://www.gatsbyjs.com/)
+- [Astro](https://astro.build/)
 
 ## Getting Started
 
@@ -13,7 +12,7 @@ To get a local copy up and running follow these steps.
 
 ### Prerequisites
 
-* npm
+- npm
   ```sh
   npm install npm@latest -g
   ```
@@ -31,7 +30,7 @@ To get a local copy up and running follow these steps.
    ```
 3. Start local development server
    ```sh
-   npm run develop
+   npm run dev
    ```
 
 ## License
@@ -40,6 +39,5 @@ Distributed under the GNU General Public License v3.0 License. See [LICENSE](LIC
 
 ## Acknowledgements
 
-* Mastodon icon from [Mastodon](https://joinmastodon.org/branding) and Pixelfed icon from [Pixelfed](https://pixelfed.org/)
-* Other icons from [iconmonstr](https://iconmonstr.com)
-* Light/dark mode made with [gatsby-plugin-use-dark-mode](https://github.com/wKovacs64/gatsby-plugin-use-dark-mode)
+- Mastodon icon from [Mastodon](https://joinmastodon.org/branding) and Pixelfed icon from [Pixelfed](https://pixelfed.org/)
+- Other icons from [iconmonstr](https://iconmonstr.com)

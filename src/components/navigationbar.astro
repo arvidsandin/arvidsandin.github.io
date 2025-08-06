@@ -1,0 +1,231 @@
+---
+import NavBarItem from "./navbaritem.astro";
+import LightDarkModeToggler from "./light_darkmodetoggler.astro";
+import Icon from "./icon.astro";
+import hamburger from "../icons/menu-lined.svg";
+---
+
+<script is:inline>
+  let isBurgerMenuExpanded = false;
+  let burgerMenuExpander;
+  let burgerMenuContent;
+  //Hide menu when clicking outside of it
+  function handleClickOutsideBurgerMenu(event) {
+    const isClickInsideExcludedElement =
+      burgerMenuExpander.contains(event.target) ||
+      burgerMenuContent.contains(event.target);
+    if (!isClickInsideExcludedElement) {
+      setIsBurgerMenuExpanded(false);
+    }
+  }
+  document.addEventListener("DOMContentLoaded", function (event) {
+    burgerMenuExpander = document.getElementById("hamburger-icon");
+    burgerMenuContent = document.getElementById("hamburger-content");
+    burgerMenuExpander.addEventListener("click", () => {
+      setIsBurgerMenuExpanded(!isBurgerMenuExpanded);
+    });
+    document.addEventListener("click", handleClickOutsideBurgerMenu);
+    return function cleanup() {
+      document.removeEventListener("click", handleClickOutsideBurgerMenu);
+    };
+  });
+  function setIsBurgerMenuExpanded(newValue) {
+    isBurgerMenuExpanded = newValue;
+    const menuContent = document.getElementById("hamburger-content");
+    if (isBurgerMenuExpanded) {
+      menuContent.classList.add("expanded");
+    } else {
+      menuContent.classList.remove("expanded");
+    }
+  }
+  // import React, { useState, useEffect, useRef } from "react";
+  // const [isExpanded, setIsExpanded] = useState(false);
+
+  // //Hide menu when clicking outside of it
+  // const menuExpander = useRef(null);
+  // const menuContent = useRef(null);
+  // useEffect(() => {
+  //   function handleClick(event: MouseEvent) {
+  //     const isClickInsideExcludedElement = menuContent.current.contains(
+  //       event.target
+  //     );
+  //     if (menuExpander.current.contains(event.target)) {
+  //       setIsExpanded(!isExpanded);
+  //     } else if (!isClickInsideExcludedElement) {
+  //       setIsExpanded(false);
+  //     }
+  //   }
+
+  //   // Add event listener when component mounts
+  //   document.addEventListener("click", handleClick);
+
+  //   // Remove event listener when component unmounts
+  //   return () => {
+  //     document.removeEventListener("click", handleClick);
+  //   };
+  // }, [isExpanded]);
+</script>
+<div class="navigation-bar">
+  <div class="hide-on-desktop">
+    <div id="hamburger-icon" class="blog-link">
+      <Icon icon={hamburger.src} size="36px" link="#" />
+    </div>
+    <div class="expandable-content" id="hamburger-content">
+      {
+        (
+          <NavBarItem
+            class="expandable-content-item"
+            link="/"
+            id="homelink"
+            text="Home"
+          />
+        )
+      }{
+        (
+          <NavBarItem
+            class="expandable-content-item"
+            link="/blog"
+            id="bloglink"
+            text="Blog"
+          />
+        )
+      }{
+        (
+          <NavBarItem
+            class="expandable-content-item"
+            link="/thesis"
+            id="thesisLink"
+            text="Illegal Cookie Banners"
+          />
+        )
+      }{
+        (
+          <NavBarItem
+            class="expandable-content-item"
+            link="/custom-top-sort"
+            id="custom-top-sortLink"
+            text="Custom top sort"
+          />
+        )
+      }{
+        (
+          <NavBarItem
+            class="expandable-content-item"
+            link="/colorCodes"
+            id="colorcodesLink"
+            text="Color Codes"
+          />
+        )
+      }{
+        (
+          <NavBarItem
+            class="expandable-content-item"
+            link="/draw-contest"
+            id="drawcontestLink"
+            text="Draw contest"
+          />
+        )
+      }
+    </div>
+  </div>
+  <NavBarItem class="hide-on-mobile" link="/" id="homelink" text="Home" />
+  <NavBarItem class="hide-on-mobile" link="/blog" id="blogLink" text="Blog" />
+  <NavBarItem
+    class="hide-on-mobile"
+    link="/thesis"
+    id="thesisLink"
+    text="Illegal Cookie Banners"
+  />
+  <NavBarItem
+    class="hide-on-mobile"
+    link="/custom-top-sort"
+    id="custom-top-sortLink"
+    text="Custom top sort"
+  />
+  <NavBarItem
+    class="hide-on-mobile"
+    link="/colorCodes"
+    id="colorcodesLink"
+    text="Color Codes"
+  />
+  <NavBarItem
+    class="hide-on-mobile"
+    link="/draw-contest"
+    id="drawcontestLink"
+    text="Draw contest"
+  />
+  <LightDarkModeToggler />
+</div>
+<style>
+  .navigation-bar {
+    width: 100%;
+    background: var(--bgSecondary);
+    height: 60px;
+    line-height: 60px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    z-index: 2;
+  }
+
+  .blog-link {
+    display: flex;
+    min-width: fit-content;
+    justify-content: left;
+    height: 100%;
+    padding: 0 1em;
+    color: var(--textTertiary);
+  }
+
+  .blog-link:hover {
+    text-decoration: none;
+    color: var(--textPrimary);
+  }
+
+  .blog-link:visited {
+    color: var(--textTertiary);
+  }
+
+  .expandable-content {
+    display: flex;
+    flex-direction: column;
+    height: 0;
+    width: 12em;
+    background-color: var(--bgSecondary);
+    transition:
+      opacity 0.5s ease-in-out,
+      height 0.5s ease-in-out;
+    opacity: 0;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  /* TODO: remove hard coded heights */
+  .expanded {
+    opacity: 1;
+    height: 600%;
+  }
+  .expandable-content-item {
+    width: 100%;
+    height: 25%;
+    color: var(--textSecondary);
+    display: none;
+  }
+
+  .expanded > .expandable-content-item {
+    display: unset;
+  }
+
+  @media only screen and (max-width: 800px) {
+    .hide-on-mobile {
+      display: none;
+    }
+  }
+
+  @media only screen and (min-width: 800px) {
+    .hide-on-desktop {
+      display: none;
+    }
+  }
+</style>

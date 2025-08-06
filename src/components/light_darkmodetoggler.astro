@@ -1,0 +1,186 @@
+---
+import Icon from "./icon.astro";
+import Sun from "../icons/weather-1.svg";
+import Moon from "../icons/weather-114.svg";
+---
+
+<script is:inline>
+  function isSystemSetToDarkMode() {
+    return window?.matchMedia("(prefers-color-scheme: dark)").matches;
+  }
+
+  let followSystem = localStorage?.getItem("theme") === "system";
+  let isLightDarkTogglerExpanded = false;
+  let lightDarkTogglerExpander;
+  let lightDarkTogglerContent;
+
+  const localStorageTheme = localStorage?.getItem("theme") ?? "system";
+
+  //Hide menu when clicking outside of it
+  function handleClickOutsideToggler(event) {
+    const isClickInsideExcludedElement =
+      lightDarkTogglerExpander.contains(event.target) ||
+      lightDarkTogglerContent.contains(event.target);
+    if (!isClickInsideExcludedElement) {
+      setIsExpanded(false);
+    }
+  }
+
+  function enableDarkMode() {
+    document.body.classList.add("dark-mode");
+    document.body.classList.remove("light-mode");
+  }
+  function disableDarkMode() {
+    document.body.classList.add("light-mode");
+    document.body.classList.remove("dark-mode");
+  }
+
+  function startFollowingSystem() {
+    localStorage.setItem("theme", "system");
+    followSystem = true;
+    isSystemSetToDarkMode() ? enableDarkMode() : disableDarkMode();
+  }
+  function stopFollowingSystem(isNewValueDarkMode) {
+    localStorage.setItem("theme", isNewValueDarkMode ? "dark" : "light");
+    followSystem = false;
+    isNewValueDarkMode ? enableDarkMode() : disableDarkMode();
+  }
+
+  document.addEventListener("DOMContentLoaded", function (event) {
+    if (localStorageTheme === "system") {
+      startFollowingSystem();
+    }
+    if (["dark", "light"].includes(localStorageTheme)) {
+      stopFollowingSystem(localStorageTheme === "dark");
+    }
+    lightDarkTogglerExpander = document.getElementById("menu-expander");
+    lightDarkTogglerContent = document.getElementById("menu-content");
+    lightDarkTogglerExpander.addEventListener("click", () => {
+      setIsExpanded(!isLightDarkTogglerExpanded);
+    });
+
+    // Add event listener when component mounts
+    document.addEventListener("click", handleClickOutsideToggler);
+    document
+      .getElementById("follow-system-button")
+      ?.addEventListener("click", startFollowingSystem);
+    document
+      .getElementById("light-mode-button")
+      ?.addEventListener("click", () => stopFollowingSystem(false));
+    document
+      .getElementById("dark-mode-button")
+      ?.addEventListener("click", () => stopFollowingSystem(true));
+
+    return function cleanup() {
+      document.removeEventListener("click", handleClickOutsideToggler);
+    };
+  });
+
+  // look for changes in the system dark mode
+  window
+    ?.matchMedia("(prefers-color-scheme: dark)")
+    .addEventListener("change", (event) => {
+      if (followSystem === true) {
+        event.matches ? enableDarkMode() : disableDarkMode();
+      }
+    });
+
+  function setIsExpanded(newValue) {
+    isLightDarkTogglerExpanded = newValue;
+    const menuContent = document.getElementById("menu-content");
+    if (isLightDarkTogglerExpanded) {
+      menuContent.classList.add("expanded");
+    } else {
+      menuContent.classList.remove("expanded");
+    }
+  }
+</script>
+<div class="menu">
+  <button id="menu-expander" type="button" class="button unselectable">
+    <Icon
+      icon={Sun.src}
+      class="light-dark-mode-icon"
+      size="24px"
+      alt="Change to light mode"
+    />
+    <div class="light-dark-mode-icon">/</div>
+    <Icon
+      icon={Moon.src}
+      class="light-dark-mode-icon"
+      size="18px"
+      alt="Change to dark mode"
+    />
+  </button>
+
+  <div id="menu-content" class="expandable-content">
+    <button
+      id="follow-system-button"
+      type="button"
+      class={"button expandable-content-item darkenOnHover unselectable"}
+    >
+      <div>Follow system</div>
+    </button>
+    <button
+      id="light-mode-button"
+      type="button"
+      class={"button expandable-content-item darkenOnHover unselectable"}
+    >
+      <Icon icon={Sun.src} size="24px" alt="Change to light mode" />
+    </button>
+    <button
+      id="dark-mode-button"
+      type="button"
+      class={"button expandable-content-item darkenOnHover unselectable"}
+    >
+      <Icon icon={Moon.src} size="18px" alt="Change to dark mode" />
+    </button>
+  </div>
+</div>
+
+<style>
+  .button {
+    color: var(--textSecondary);
+    padding: 0 1em;
+    margin-left: auto;
+    display: flex;
+  }
+
+  .menu {
+    margin-right: 1em;
+    margin-left: auto;
+  }
+
+  .expandable-content {
+    height: 0;
+    width: 8em;
+    background-color: var(--bgSecondary);
+    transition:
+      opacity 0.5s ease-in-out,
+      height 0.5s ease-in-out;
+    opacity: 0;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .expanded {
+    opacity: 1;
+    height: 300%;
+  }
+
+  .expandable-content-item {
+    width: 100%;
+    height: 33%;
+    display: none;
+    justify-content: center;
+    color: var(--textSecondary);
+  }
+
+  .expanded > .expandable-content-item {
+    display: flex;
+  }
+
+  .light-dark-mode-icon {
+    color: var(--textSecondary);
+    padding: 0;
+    font-size: 24px;
+  }
+</style>

@@ -1,0 +1,26 @@
+---
+const { edited, created } = Astro.props;
+---
+
+<div class="edit-note">
+  {
+    (
+      <p>
+        Last edited:{" "}
+        {(edited || created).toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        })}
+      </p>
+    )
+  }
+</div>
+
+<style>
+  .edit-note {
+    color: var(--textTertiary);
+    text-align: right;
+    font-size: 0.8em;
+  }
+</style>

@@ -1,0 +1,56 @@
+---
+import NavigationBar from "../components/navigationbar.astro";
+import Wrapper from "../components/wrapper.astro";
+import Footer from "../components/footer.astro";
+import Logo from "../components/logo.astro";
+import Github from "../logos/githubLogo.svg";
+import LinkedIn from "../logos/linkedinLogo.svg";
+import Instagram from "../logos/instagramLogo.svg";
+import Mastodon from "../logos/mastodonLogo.svg";
+import Pixelfed from "../logos/pixelfedLogo.svg";
+import "../styles/global.css";
+import "../styles/prism-okaidia.css";
+import Head from "../components/head.astro";
+---
+
+<Head />
+<div>
+  <title>Arvid Sandin</title>
+  <NavigationBar />
+  <Wrapper
+    header="Arvid Sandin"
+    content={"Hi! I'm Arvid Sandin and I'm a system developer with a Master of Science in engineering degree in IT. As a person I am always open to learn and appreciate well executed technical solutions." +
+      "<br /><br />" +
+      "In the navigation bar, you will find some of my personal programming projects and experiments. If you want to get in touch, please send a message in any of the services linked below." +
+      "<br /><br />" +
+      "If you're wondering about this website in particular, it's built with Astro and hosted with GitHub Pages. More details and the source code for can be found  <a href='https://github.com/arvidsandin/arvidsandin.github.io'>in the repository</a>." +
+      "<br />"}
+    ><Logo
+      logo={LinkedIn}
+      link="https://www.linkedin.com/in/arvid-sandin/"
+      alt="LinkedIn logo"
+      rel_me={true}
+    /><Logo
+      logo={Github}
+      link="https://github.com/arvidsandin"
+      alt="Github logo"
+      rel_me={true}
+    /><Logo
+      logo={Instagram}
+      link="https://www.instagram.com/arvidsandin/"
+      alt="Instagram logo"
+      rel_me={true}
+    /><Logo
+      logo={Mastodon}
+      link="https://mas.to/@arvidsandin"
+      alt="Mastodon logo"
+      rel_me={true}
+    /><Logo
+      logo={Pixelfed}
+      link="https://pixey.org/arvidsandin"
+      alt="Pixelfed logo"
+      rel_me={true}
+    />
+    <Footer />
+  </Wrapper>
+</div>

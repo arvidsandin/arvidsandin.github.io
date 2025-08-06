@@ -1,0 +1,35 @@
+---
+import NavigationBarBlog from "../../components/navigationbar_blog.astro";
+import Wrapper from "../../components/wrapper.astro";
+import Footer from "../../components/footer.astro";
+import BlogEntryCard from "../../components/blogentrycard.astro";
+import Icon from "../../components/icon.astro";
+import rssLogo from "../../logos/rss.svg";
+import type { BlogEntry } from "../../content.config";
+import { getCollection } from "astro:content";
+const posts: BlogEntry[] = await getCollection("blog");
+const excerptMaxLength = 350;
+posts.forEach((post) => {
+  post.data.excerpt =
+    post.body
+      ?.split("<!-- begin excerpt -->")[1]
+      ?.split("<!-- end excerpt -->")[0]
+      ?.slice(0, excerptMaxLength) || "";
+});
+import "../../styles/global.css";
+import "../../styles/prism-okaidia.css";
+import Head from "../../components/head.astro";
+---
+
+<Head title="Blog" />
+<div>
+  <NavigationBarBlog />
+  <Wrapper header="Blog">
+    {
+      posts
+        .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+        .map((post) => <BlogEntryCard key={post.id} data={post.data} />)
+    }
+    <Footer><Icon icon={rssLogo} link="/blog/rss.xml" /></Footer>
+  </Wrapper>
+</div>

@@ -1,0 +1,23 @@
+---
+const { classes } = Astro.props;
+---
+
+<div class={`sidebar ${classes}`}>
+  <slot />
+</div>
+<style>
+  .sidebar {
+    padding: 20px 36px;
+  }
+  @media all and (min-width: 800px) {
+    .sidebar {
+      flex: 2 0px;
+    }
+  }
+
+  @media all and (min-width: 800px) {
+    .sidebar-small {
+      flex: 0.5 0px;
+    }
+  }
+</style>

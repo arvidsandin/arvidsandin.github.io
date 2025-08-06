@@ -1,0 +1,50 @@
+---
+const { data } = Astro.props;
+---
+
+<div class="card">
+  <a class="link" href={`/blog${data.slug}`}>
+    <h3 class="title">{data.title}</h3>
+    <p class="excerpt">{data.excerpt}</p>
+    <p class="date">
+      {
+        data.date.toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        })
+      }
+    </p>
+  </a>
+</div>
+
+<style>
+  .link:hover {
+    text-decoration: none;
+  }
+
+  .card {
+    border-bottom: 1px var(--textPrimary) solid;
+  }
+
+  .title {
+    color: var(--textPrimary);
+    font-weight: bold;
+    text-decoration: underline rgba(255, 255, 255, 0);
+    transition:
+      text-decoration-color var(--defaultTransition),
+      color var(--defaultTransition);
+  }
+
+  .link:hover .title {
+    text-decoration-color: var(--textPrimary);
+  }
+
+  .excerpt {
+    color: var(--textPrimary);
+  }
+
+  .date {
+    color: var(--textTertiary);
+  }
+</style>

@@ -1,0 +1,28 @@
+---
+const { class: className, link, id, text, ...rest } = Astro.props;
+---
+
+<div class:list={["navbar-item", className, "darkenOnHover"]} {...rest}>
+  <a class="link" href={link} id={id}>{text}</a>
+</div>
+<style>
+  .navbar-item {
+    display: inline-block;
+    width: 10%;
+    min-width: fit-content;
+    height: 100%;
+    text-align: center;
+  }
+
+  .link {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    padding: 0 1em;
+    color: var(--textSecondary);
+  }
+
+  .link:visited {
+    color: var(--textSecondary);
+  }
+</style>
