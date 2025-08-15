@@ -16,6 +16,13 @@ import Moon from "../icons/weather-114.svg";
 
   const localStorageTheme = localStorage?.getItem("theme") ?? "system";
 
+  if (localStorageTheme === "system") {
+    startFollowingSystem();
+  }
+  if (["dark", "light"].includes(localStorageTheme)) {
+    stopFollowingSystem(localStorageTheme === "dark");
+  }
+
   //Hide menu when clicking outside of it
   function handleClickOutsideToggler(event) {
     const isClickInsideExcludedElement =
@@ -27,12 +34,12 @@ import Moon from "../icons/weather-114.svg";
   }
 
   function enableDarkMode() {
-    document.body.classList.add("dark-mode");
-    document.body.classList.remove("light-mode");
+    document.documentElement.classList.add("dark-mode");
+    document.documentElement.classList.remove("light-mode");
   }
   function disableDarkMode() {
-    document.body.classList.add("light-mode");
-    document.body.classList.remove("dark-mode");
+    document.documentElement.classList.add("light-mode");
+    document.documentElement.classList.remove("dark-mode");
   }
 
   function startFollowingSystem() {
@@ -47,12 +54,6 @@ import Moon from "../icons/weather-114.svg";
   }
 
   document.addEventListener("DOMContentLoaded", function (event) {
-    if (localStorageTheme === "system") {
-      startFollowingSystem();
-    }
-    if (["dark", "light"].includes(localStorageTheme)) {
-      stopFollowingSystem(localStorageTheme === "dark");
-    }
     lightDarkTogglerExpander = document.getElementById("menu-expander");
     lightDarkTogglerContent = document.getElementById("menu-content");
     lightDarkTogglerExpander.addEventListener("click", () => {

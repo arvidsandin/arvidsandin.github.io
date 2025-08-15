@@ -13,7 +13,7 @@
         filter var(--defaultTransition)
     }
 }
-body.light-mode {
+:root.light-mode {
   --bgPrimary: #f2f2f2;
   --bgSecondary: #fff;
   --bgTertiary: #d7d7d7;
@@ -42,7 +42,8 @@ body.light-mode {
     --prismjs-atrule: #e6db74;
     --prismjs-keyword: #66d9ef;
     --prismjs-regex: #fd971f;    
-}body.dark-mode {
+}
+:root.dark-mode {
   -webkit-font-smoothing: antialiased;
   --bgPrimary: #222;
   --bgSecondary: #000;
