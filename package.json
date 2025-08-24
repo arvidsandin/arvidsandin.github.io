@@ -10,7 +10,9 @@
     "deploy": "astro build && gh-pages -d dist"
   },
   "dependencies": {
+    "@astrojs/rss": "^4.0.12",
     "astro": "^5.12.8",
+    "markdown-it": "^14.1.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },
