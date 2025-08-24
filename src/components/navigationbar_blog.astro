@@ -1,0 +1,23 @@
+---
+import NavBarItem from "./navbaritem.astro";
+import LightDarkModeToggler from "./light_darkmodetoggler.astro";
+---
+
+<div class="navigation-bar">
+  <NavBarItem link="/" id="homelink" text="Home" />
+  <LightDarkModeToggler />
+</div>
+<style>
+  .navigation-bar {
+    width: 100%;
+    background: var(--bgSecondary);
+    height: 60px;
+    line-height: 60px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    z-index: 2;
+  }
+</style>

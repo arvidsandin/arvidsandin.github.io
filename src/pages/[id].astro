@@ -1,0 +1,33 @@
+---
+import type { PortfolioEntry } from "../content.config";
+import { getCollection, render } from "astro:content";
+export async function getStaticPaths() {
+  const entries: PortfolioEntry[] = await getCollection("portfolio");
+  console.log(entries);
+  return entries.map((entry) => ({
+    params: { id: entry.id },
+    props: { entry: entry },
+  }));
+}
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+
+import NavigationBar from "../components/navigationbar.astro";
+import Wrapper from "../components/wrapper.astro";
+import Footer from "../components/footer.astro";
+import "../styles/global.css";
+import "../styles/prism-okaidia.css";
+import Head from "../components/head.astro";
+---
+
+<Head title={entry.data.title} pathname={entry.data.slug} />
+
+<div>
+  <NavigationBar />
+  <Wrapper header={entry.data.title} headerLink={entry.data.headerLink}>
+    <div class="scale-image">
+      <Content />
+    </div>
+    <Footer />
+  </Wrapper>
+</div>

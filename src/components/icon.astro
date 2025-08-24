@@ -1,0 +1,51 @@
+---
+const {
+  class: className,
+  height,
+  width,
+  size,
+  icon,
+  alt,
+  link,
+  ...rest
+} = Astro.props;
+const defaultSize = 32;
+const iconHeight = height || size || defaultSize;
+const iconWidth = width || size || defaultSize;
+---
+
+{
+  link ? (
+    <a href={link} class:list={["icon", "iconClickable", className]} {...rest}>
+      <img
+        src={icon.src}
+        style={{ height: iconHeight, width: iconWidth }}
+        alt={alt}
+      />
+      <slot />
+    </a>
+  ) : (
+    <div class:list={["icon", className]} {...rest}>
+      <img
+        src={icon.src}
+        style={{ height: iconHeight, width: iconWidth }}
+        alt={alt}
+      />
+      <slot />
+    </div>
+  )
+}
+
+<style>
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: var(--filter);
+  }
+
+  /* TODO: make something that works with .darkenOnHover instead*/
+  .icon-clickable:hover {
+    filter: invert(0.5);
+  }
+</style>

@@ -1,0 +1,38 @@
+---
+const { title, description, pathname, type, image } = Astro.props;
+const siteUrl = "https://arvid.sandin.dev";
+const defaultTitle = "Arvid Sandin";
+const defaultDescription = "Arvid Sandin's personal website";
+const defaultAuthor = "Arvid Sandin";
+// TODO: create and use og-image
+const defaultImage = "/icons/icon-512x512.png";
+const metadata = {
+  title: title || defaultTitle,
+  extendedTitle: title ? `${title} | ${defaultTitle}` : defaultTitle,
+  description: description || defaultDescription,
+  image: image ? `${siteUrl}${image}` : `${siteUrl}${defaultImage}`,
+  url: `${siteUrl}${pathname || ``}`,
+  type: type || `website`,
+};
+---
+
+<title>{metadata.extendedTitle}</title>
+
+<script
+  data-goatcounter="https://arvid-sandin-dev.goatcounter.com/count"
+  async
+  src="https://gc.zgo.at/count.js"></script>
+
+<meta name="description" content={metadata.description} />
+<meta name="author" content={defaultAuthor} />
+<meta name="image" content={metadata.image} />
+<meta property="og:title" content={metadata.title} />
+<meta property="og:url" content={metadata.url} />
+<meta property="og:type" content={metadata.type} />
+<meta property="og:image" content={metadata.image} />
+<meta property="og:description" content={metadata.description} />
+<slot />
+
+<link rel="icon" href="/favicon.png" type="image/png" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="utf-8" />

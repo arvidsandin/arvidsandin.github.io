@@ -1,56 +1,22 @@
 {
   "name": "arvid-sandin",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Arvid Sandin",
-  "keywords": [
-    "gatsby"
-  ],
+  "version": "2.0.0",
+  "type": "module",
   "scripts": {
-    "__COMMENT__": "there is a problem with rss generation, so gatsby build needs to be run twice, otherwise there are be no items in the rss feed",
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
-    "build": "gatsby build && gatsby build",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "deploy": "gatsby build --prefix-paths && gatsby build --prefix-paths && gh-pages -d public"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "deploy": "astro build && gh-pages -d dist"
   },
   "dependencies": {
-    "@reach/router": "^1.3.4",
-    "gatsby": "^5.13.7",
-    "gatsby-link": "^5.13.1",
-    "gatsby-plugin-image": "^3.14.0",
-    "gatsby-plugin-manifest": "^5.14.0",
-    "gatsby-plugin-sharp": "^5.14.0",
-    "gatsby-plugin-use-dark-mode": "^2.0.1",
-    "gatsby-remark-images": "^7.14.0",
-    "gatsby-remark-prismjs": "^7.14.0",
-    "gatsby-source-filesystem": "^5.14.0",
-    "gatsby-transformer-remark": "^6.14.0",
-    "gatsby-transformer-sharp": "^5.14.0",
-    "prismjs": "^1.29.0",
-    "reach": "^1.0.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "rss": "^1.2.2",
-    "use-dark-mode": "^2.3.1"
+    "@astrojs/rss": "^4.0.12",
+    "astro": "^5.12.8",
+    "markdown-it": "^14.1.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
   },
   "devDependencies": {
-    "gatsby-plugin-goatcounter": "^0.4.0",
     "gh-pages": "^6.3.0"
-  },
-  "overrides": {
-    "gatsby-plugin-goatcounter": {
-      "gatsby": "$gatsby",
-      "react": "$react",
-      "minimatch": "3.0.8"
-    },
-    "@reach/router": {
-      "react": "$react",
-      "react-dom": "$react-dom"
-    },
-    "use-dark-mode": {
-      "react": "$react"
-    }
   }
 }

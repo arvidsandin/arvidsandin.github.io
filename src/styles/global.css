@@ -7,9 +7,13 @@
 }
 @supports (-moz-appearance:none) {
     /* This causes a significant delay in webkit browsers between the background and text transitions*/
-    * {transition: background var(--defaultTransition), color var(--defaultTransition), filter var(--defaultTransition)}
+    * {
+        transition: background var(--defaultTransition),
+        color var(--defaultTransition),
+        filter var(--defaultTransition)
+    }
 }
-body.light-mode {
+:root.light-mode {
   --bgPrimary: #f2f2f2;
   --bgSecondary: #fff;
   --bgTertiary: #d7d7d7;
@@ -38,7 +42,8 @@ body.light-mode {
     --prismjs-atrule: #e6db74;
     --prismjs-keyword: #66d9ef;
     --prismjs-regex: #fd971f;    
-}body.dark-mode {
+}
+:root.dark-mode {
   -webkit-font-smoothing: antialiased;
   --bgPrimary: #222;
   --bgSecondary: #000;
@@ -131,6 +136,12 @@ p{
     color: var(--primaryText);
 }
 
+.scale-image img{
+    display: block;
+    height: 100%;
+    max-width: 80%;
+    margin: 0 auto;
+}
 .unselectable {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
