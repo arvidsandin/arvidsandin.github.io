@@ -9,4 +9,7 @@ export default defineConfig({
     rehypePlugins: [rehypeInlineCodeClass],
     syntaxHighlight: "prism",
   },
+  build: {
+    assets: "assets",
+  },
 });
