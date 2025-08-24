@@ -26,25 +26,25 @@ import Head from "../../components/head.astro";
   description={post.data.description}
   const
   image={"/blog" + post.data.image}
-/>
-
-<div>
-  <NavigationBarBlogEntry />
-  <Wrapper
-    leftSidebarClass="sidebar-small"
-    header={post.data.title}
-    date={post.data.date}
-  >
-    <div class="scale-image">
-      <Content />
-    </div>
-    <EditNote edited={post.data.lastChanged} created={post.data.date} />
-    <Footer />
-  </Wrapper>
-</div>
-<style>
-  img {
-    width: 100%;
-    height: 100%;
-  }
-</style>
+>
+  <div>
+    <NavigationBarBlogEntry />
+    <Wrapper
+      leftSidebarClass="sidebar-small"
+      header={post.data.title}
+      date={post.data.date}
+    >
+      <div class="scale-image">
+        <Content />
+      </div>
+      <EditNote edited={post.data.lastChanged} created={post.data.date} />
+      <Footer />
+    </Wrapper>
+  </div>
+  <style>
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</Head>

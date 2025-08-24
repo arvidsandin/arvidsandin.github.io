@@ -21,8 +21,7 @@ import "../../styles/prism-okaidia.css";
 import Head from "../../components/head.astro";
 ---
 
-<Head title="Blog" />
-<div>
+<Head title="Blog">
   <NavigationBarBlog />
   <Wrapper header="Blog">
     {
@@ -30,6 +29,6 @@ import Head from "../../components/head.astro";
         .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
         .map((post) => <BlogEntryCard key={post.id} data={post.data} />)
     }
-    <Footer><Icon icon={rssLogo} link="/blog/rss.xml" /></Footer>
+    <Footer><Icon icon={rssLogo} link="/blog/rss.xml" alt="RSS Feed" /></Footer>
   </Wrapper>
-</div>
+</Head>

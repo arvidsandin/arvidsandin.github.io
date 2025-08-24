@@ -3,59 +3,60 @@ import Head from "../components/head.astro";
 import "../styles/global.css";
 ---
 
-<script is:inline>
-  var isPink = false;
-  function doStuff() {
-    var myButton = document.getElementById("the-button");
-    var lightPink = "#fadadd";
-    var veryLightGrey = "#f2f2f2";
-    if (isPink) {
-      document.body.style.background = veryLightGrey;
-      myButton.style.background = lightPink;
-      isPink = false;
-    } else {
-      document.body.style.background = lightPink;
-      myButton.style.background = veryLightGrey;
-      isPink = true;
+<Head title="Button">
+  <script is:inline>
+    var isPink = false;
+    function doStuff() {
+      var myButton = document.getElementById("the-button");
+      var lightPink = "#fadadd";
+      var veryLightGrey = "#f2f2f2";
+      if (isPink) {
+        document.body.style.background = veryLightGrey;
+        myButton.style.background = lightPink;
+        isPink = false;
+      } else {
+        document.body.style.background = lightPink;
+        myButton.style.background = veryLightGrey;
+        isPink = true;
+      }
     }
-  }
-</script>
+  </script>
 
-<Head title="Button" />
-<div id="button-container">
-  <button
-    type="button"
-    name="button"
-    class="unselectable"
-    id="the-button"
-    onclick="doStuff()">Button</button
-  >
-</div>
-<style>
-  body {
-    background: #f2f2f2;
-  }
-  #button-container {
-    height: 75px;
-    width: 120px;
-    margin: auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  #the-button {
-    width: 100%;
-    padding: auto;
-    height: 100%;
-    margin: auto;
-    text-align: center;
-    border: solid #000 2.5px;
-    border-radius: 2px;
-    background: #fadadd;
-  }
-  #the-button,
-  body {
-    transition: background var(--defaultTransition);
-  }
-</style>
+  <div id="button-container">
+    <button
+      type="button"
+      name="button"
+      class="unselectable"
+      id="the-button"
+      onclick="doStuff()">Button</button
+    >
+  </div>
+  <style>
+    body {
+      background: #f2f2f2;
+    }
+    #button-container {
+      height: 75px;
+      width: 120px;
+      margin: auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    #the-button {
+      width: 100%;
+      padding: auto;
+      height: 100%;
+      margin: auto;
+      text-align: center;
+      border: solid #000 2.5px;
+      border-radius: 2px;
+      background: #fadadd;
+    }
+    #the-button,
+    body {
+      transition: background var(--defaultTransition);
+    }
+  </style>
+</Head>

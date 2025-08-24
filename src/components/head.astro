@@ -16,23 +16,27 @@ const metadata = {
 };
 ---
 
-<title>{metadata.extendedTitle}</title>
+<html lang="en">
+  <title>{metadata.extendedTitle}</title>
 
-<script
-  data-goatcounter="https://arvid-sandin-dev.goatcounter.com/count"
-  async
-  src="https://gc.zgo.at/count.js"></script>
+  <script
+    data-goatcounter="https://arvid-sandin-dev.goatcounter.com/count"
+    async
+    src="https://gc.zgo.at/count.js"></script>
 
-<meta name="description" content={metadata.description} />
-<meta name="author" content={defaultAuthor} />
-<meta name="image" content={metadata.image} />
-<meta property="og:title" content={metadata.title} />
-<meta property="og:url" content={metadata.url} />
-<meta property="og:type" content={metadata.type} />
-<meta property="og:image" content={metadata.image} />
-<meta property="og:description" content={metadata.description} />
-<slot />
+  <meta name="description" content={metadata.description} />
+  <meta name="author" content={defaultAuthor} />
+  <meta name="image" content={metadata.image} />
+  <meta property="og:title" content={metadata.title} />
+  <meta property="og:url" content={metadata.url} />
+  <meta property="og:type" content={metadata.type} />
+  <meta property="og:image" content={metadata.image} />
+  <meta property="og:description" content={metadata.description} />
 
-<link rel="icon" href="/favicon.png" type="image/png" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta charset="utf-8" />
+  <link rel="icon" href="/favicon.png" type="image/png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <body>
+    <slot />
+  </body>
+</html>

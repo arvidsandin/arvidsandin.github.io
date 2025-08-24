@@ -20,9 +20,7 @@ import "../styles/prism-okaidia.css";
 import Head from "../components/head.astro";
 ---
 
-<Head title={entry.data.title} pathname={entry.data.slug} />
-
-<div>
+<Head title={entry.data.title} pathname={entry.data.slug}>
   <NavigationBar />
   <Wrapper header={entry.data.title} headerLink={entry.data.headerLink}>
     <div class="scale-image">
@@ -30,4 +28,4 @@ import Head from "../components/head.astro";
     </div>
     <Footer />
   </Wrapper>
-</div>
+</Head>
