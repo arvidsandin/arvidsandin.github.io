@@ -3,6 +3,9 @@ import { getCollection } from "astro:content";
 import MarkdownIt from "markdown-it";
 const parser = new MarkdownIt();
 
+const imageNote =
+  "*Note: Images in this post are not displayed in the RSS feed. View the blog on the web to see them.*\n\n";
+
 export async function GET(context) {
   const blog = await getCollection("blog");
   return rss({
@@ -20,7 +23,7 @@ export async function GET(context) {
       pubDate: post.data.date,
       description: post.data.description,
       link: `/blog/${post.data.slug}/`,
-      content: parser.render(post.body),
+      content: parser.render(imageNote + post.body.replace(/<\!--.*?-->/g, "")),
       customData: `<dc:creator>Arvid Sandin</dc:creator>`,
     })),
     customData:
